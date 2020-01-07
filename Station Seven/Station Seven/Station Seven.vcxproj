@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\ResourceManager.h" />

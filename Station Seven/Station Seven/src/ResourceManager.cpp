@@ -38,6 +38,7 @@ void ResourceManager::loadTextures()
 	{
 		//m_textureHolder.acquire(TextureID::SPLASH, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\splash.jpg"));
 		m_textureHolder.acquire(TextureID::PLAYERSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\shipSprite_1.png"));
+		m_textureHolder.acquire(TextureID::BULLET, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\bullet.png"));
 		//m_textureHolder.acquire(TextureID::PLANETSOLID, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Solid.png"));
 		//m_textureHolder.acquire(TextureID::GOALSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\EndPoint.png"));
 		//m_textureHolder.acquire(TextureID::ARROW_INDICATOR, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\arrowDirection.png"));

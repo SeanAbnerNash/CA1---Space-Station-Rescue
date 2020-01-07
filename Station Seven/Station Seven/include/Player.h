@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.h"
 #include <iostream>
+#include "Bullet.h"
+#include <vector>
 
 class Player
 {
@@ -17,24 +19,31 @@ public:
 	void decreaseRotation();
 	sf::Vector2f getPos();
 	sf::Vector2f getVel();
+
 private:
+	void handleInput();
+	void borderCheck();
 	//Angle
 	float m_angle;
-	sf::Vector2f m_position;
-	sf::CircleShape m_playerHitbox;
-	sf::Texture m_texture;
-	sf::Sprite m_playerSprite;
-	ResourceManager& m_resourceMng;
-
-	sf::Vector2f m_spriteDimensions{ 100,100 };
-	float m_hitboxRadius{ 50 };
-	sf::Vector2f m_velocity;
 	float m_maxSpeed;
 	float m_rotation;
 	float m_speed;
+	float m_hitboxRadius{ 50 };
+
+	sf::Vector2f m_position;
+	sf::Vector2f m_velocity;
 	sf::Vector2f m_heading;
+	sf::Vector2f m_spriteDimensions{ 100,100 };
+
+	sf::CircleShape m_playerHitbox;
+	sf::Texture m_texture;
+	sf::Sprite m_playerSprite;
+
+	ResourceManager& m_resourceMng;
+
 	const float  DEG_TO_RAD = 3.14f / 180.0f;
-	
+	std::vector<Bullet*> m_bullets;
+
 	//Position
 	//Max Speed
 	//Current Speed

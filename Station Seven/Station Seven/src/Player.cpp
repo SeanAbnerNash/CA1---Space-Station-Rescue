@@ -22,6 +22,29 @@ Player::Player(ResourceManager& t_resources) :
 
 void Player::update(sf::Time t_deltaTime)
 {
+	handleInput();
+	borderCheck();
+	m_heading.x = cos(m_rotation * (DEG_TO_RAD));
+	m_heading.y = sin(m_rotation * (DEG_TO_RAD));
+	m_playerSprite.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
+		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
+	m_playerHitbox.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
+		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
+	m_playerSprite.setRotation(m_rotation - 90);
+
+	for (Bullet* bullet : m_bullets) {
+		bullet->update();
+		if (bullet->getLifetime() > bullet->BULLET_MAX_LIFE) 
+		{
+			m_bullets.erase(m_bullets.begin());
+		}
+	}
+	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
+}
+
+
+void Player::handleInput()
+{
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) == true)
 	{
 		increaseSpeed();
@@ -39,6 +62,14 @@ void Player::update(sf::Time t_deltaTime)
 		decreaseRotation();
 
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) == true)
+	{
+		m_bullets.push_back(new Bullet(m_playerSprite.getPosition(), m_playerSprite.getRotation() + 90, m_resourceMng));
+	}
+}
+
+void Player::borderCheck()
+{
 	//Window checking
 	if (m_playerSprite.getPosition().x > 1920)
 	{
@@ -56,19 +87,20 @@ void Player::update(sf::Time t_deltaTime)
 	{
 		m_playerSprite.setPosition(m_playerSprite.getPosition().x, 1080);
 	}
-	m_heading.x = cos(m_rotation * (DEG_TO_RAD));
-	m_heading.y = sin(m_rotation * (DEG_TO_RAD));
-	m_playerSprite.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
-		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
-	m_playerHitbox.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
-		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
-	m_playerSprite.setRotation(m_rotation - 90);
-	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
 }
+
+
 void Player::render(sf::RenderWindow& window)
 {
 	window.draw(m_playerHitbox);
 	window.draw(m_playerSprite);
+	for (Bullet* bullet : m_bullets) {
+		if (bullet) 
+		{
+			bullet->render(window);
+		}
+
+	}
 }
 
 float Player::getPositionX()
