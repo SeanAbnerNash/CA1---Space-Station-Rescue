@@ -34,7 +34,8 @@ void Player::update(sf::Time t_deltaTime)
 		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
 	m_playerSprite.setRotation(m_rotation - 90);
 
-	for (Bullet* bullet : m_bullets) {
+	for (Bullet* bullet : m_bullets) 
+	{
 		bullet->update();
 		if (bullet->getLifetime() > bullet->BULLET_MAX_LIFE) 
 		{
@@ -47,6 +48,7 @@ void Player::update(sf::Time t_deltaTime)
 
 void Player::handleInput()
 {
+	m_bulletCounter++;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) == true)
 	{
 		increaseSpeed();
@@ -64,8 +66,9 @@ void Player::handleInput()
 		decreaseRotation();
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) == true)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) == true && m_bulletCounter > m_bulletTime)
 	{
+		m_bulletCounter = 0;
 		m_bullets.push_back(new Bullet(m_playerSprite.getPosition(), m_playerSprite.getRotation() + 90, m_resourceMng));
 	}
 }

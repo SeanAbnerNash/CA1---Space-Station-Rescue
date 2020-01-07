@@ -45,6 +45,8 @@ private:
 	const float  DEG_TO_RAD = 3.14f / 180.0f;
 	std::vector<Bullet*> m_bullets;
 	sf::View m_view;
+	int m_bulletCounter;
+	int m_bulletTime = 15;
 	//Position
 	//Max Speed
 	//Current Speed
