@@ -9,7 +9,14 @@ public:
 	Player(ResourceManager& t_resources);
 	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
-
+	float getPositionX();
+	float getPositionY();
+	void increaseRotation();
+	void increaseSpeed();
+	void decreaseSpeed();
+	void decreaseRotation();
+	sf::Vector2f getPos();
+	sf::Vector2f getVel();
 private:
 	//Angle
 	float m_angle;
@@ -21,7 +28,12 @@ private:
 
 	sf::Vector2f m_spriteDimensions{ 100,100 };
 	float m_hitboxRadius{ 50 };
-
+	sf::Vector2f m_velocity;
+	float m_maxSpeed;
+	float m_rotation;
+	float m_speed;
+	sf::Vector2f m_heading;
+	const float  DEG_TO_RAD = 3.14f / 180.0f;
 	
 	//Position
 	//Max Speed

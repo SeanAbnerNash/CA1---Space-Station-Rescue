@@ -1,6 +1,0 @@
-﻿  game.cpp
-  main.cpp
-C:\Users\Sean\Desktop\Space Station\CA1---Space-Station-Rescue\Station Seven\Station Seven\game.h(5,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-  Player.cpp
-  Generating Code...
-C:\Users\Sean\Desktop\Space Station\CA1---Space-Station-Rescue\Station Seven\Station Seven\game.h(5,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory

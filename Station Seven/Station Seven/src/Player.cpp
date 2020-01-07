@@ -1,14 +1,19 @@
 #include "Player.h"
 
 Player::Player(ResourceManager& t_resources) :
-	m_resourceMng(t_resources)
+	m_resourceMng(t_resources),
+	m_velocity(0, 0),
+	m_position(300, 300),
+	m_speed(0),
+	m_maxSpeed(750),
+	m_rotation(90),
+	m_heading(0, 0)
 {
 	m_playerHitbox.setRadius(m_hitboxRadius);
 	m_playerHitbox.setOrigin(m_hitboxRadius, m_hitboxRadius);	
 
 	m_playerSprite.setTexture(m_resourceMng.getTexture(TextureID::PLAYERSPRITE));
 	m_playerSprite.setOrigin(m_playerSprite.getLocalBounds().width / 2.0f, m_playerSprite.getLocalBounds().height / 2.0f);
-	m_position = sf::Vector2f(300, 300);
 	m_playerSprite.setScale(m_spriteDimensions.x /m_playerSprite.getGlobalBounds().width, m_spriteDimensions.y / m_playerSprite.getGlobalBounds().height);
 	m_playerSprite.setPosition(m_position);
 	m_playerHitbox.setFillColor(sf::Color::Black);
@@ -17,13 +22,105 @@ Player::Player(ResourceManager& t_resources) :
 
 void Player::update(sf::Time t_deltaTime)
 {
-	//m_angle = 90;
-	//m_playerSprite.setRotation(m_angle);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) == true)
+	{
+		increaseSpeed();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) == true)
+	{
+		decreaseSpeed();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) == true)
+	{
+		increaseRotation();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) == true)
+	{
+		decreaseRotation();
+
+	}
+	//Window checking
+	if (m_playerSprite.getPosition().x > 1920)
+	{
+		m_playerSprite.setPosition(-200, m_playerSprite.getPosition().y);
+	}
+	if (m_playerSprite.getPosition().y > 1080)
+	{
+		m_playerSprite.setPosition(m_playerSprite.getPosition().x, -200);
+	}
+	if (m_playerSprite.getPosition().x < -200)
+	{
+		m_playerSprite.setPosition(1920, m_playerSprite.getPosition().y);
+	}
+	if (m_playerSprite.getPosition().y < -200)
+	{
+		m_playerSprite.setPosition(m_playerSprite.getPosition().x, 1080);
+	}
+	m_heading.x = cos(m_rotation * (DEG_TO_RAD));
+	m_heading.y = sin(m_rotation * (DEG_TO_RAD));
+	m_playerSprite.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
+		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
+	m_playerHitbox.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
+		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
+	m_playerSprite.setRotation(m_rotation - 90);
+	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
+}
+void Player::render(sf::RenderWindow& window)
+{
+	window.draw(m_playerHitbox);
+	window.draw(m_playerSprite);
 }
 
-void Player::render(sf::RenderWindow& t_window)
+float Player::getPositionX()
 {
-	t_window.draw(m_playerHitbox);
-	t_window.draw(m_playerSprite);
+	return m_position.x;
+}
 
+float Player::getPositionY()
+{
+	return m_position.y;
+}
+
+void Player::increaseRotation()
+{
+	m_rotation += 3.0f;
+}
+
+void Player::increaseSpeed()
+{
+	if (m_speed < m_maxSpeed)
+	{
+		m_speed += 10.0f;
+	}
+}
+
+void Player::decreaseSpeed()
+{
+	if (m_speed > 0.0f)
+	{
+		m_speed -= 10.0f;
+	}
+}
+
+void Player::decreaseRotation()
+{
+	if (m_rotation != 0.0f)
+	{
+		m_rotation -= 3.0f;
+	}
+	else
+	{
+		m_rotation = 359.0f;
+	}
+
+}
+
+sf::Vector2f Player::getPos()
+{
+	return m_playerSprite.getPosition();
+}
+
+sf::Vector2f Player::getVel()
+{
+	return sf::Vector2f(m_velocity.x, m_velocity.y);
 }

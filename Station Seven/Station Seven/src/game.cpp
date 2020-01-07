@@ -6,7 +6,7 @@
 
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1600, 800, 32 }, "SFML Game" },
+	m_window{ sf::VideoMode{ 1920, 1080, 32 }, "SFML Game" },
 	m_player(m_resourceMng),
 	m_exitGame{false} //when true game will exit
 {
