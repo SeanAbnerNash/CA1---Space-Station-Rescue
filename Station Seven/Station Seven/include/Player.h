@@ -19,7 +19,8 @@ public:
 	void decreaseRotation();
 	sf::Vector2f getPos();
 	sf::Vector2f getVel();
-
+	sf::View getView();
+	sf::Sprite getSprite();
 private:
 	void handleInput();
 	void borderCheck();
@@ -43,7 +44,7 @@ private:
 
 	const float  DEG_TO_RAD = 3.14f / 180.0f;
 	std::vector<Bullet*> m_bullets;
-
+	sf::View m_view;
 	//Position
 	//Max Speed
 	//Current Speed

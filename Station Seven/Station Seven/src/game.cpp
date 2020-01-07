@@ -1,17 +1,17 @@
-// author Peter Lowe
-
 #include "game.h"
 #include <iostream>
 
-
+static sf::Int32 MS_PER_UPDATE = 10.0;
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1920, 1080, 32 }, "SFML Game" },
+	m_window{ sf::VideoMode{ 1200, 800, 32 }, "SFML Game" },
 	m_player(m_resourceMng),
 	m_exitGame{false} //when true game will exit
 {
-	setupFontAndText(); // load font 
-	setupSprite(); // load texture
+	m_window.setFramerateLimit(60);
+	m_mapBorder.setOutlineThickness(10.0f);
+	m_mapBorder.setOutlineColor(sf::Color::Black);
+	m_mapBorder.setSize(sf::Vector2f(300, 200));
 }
 
 
@@ -72,8 +72,6 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
-	//std::cout << t_deltaTime.asSeconds() << std::endl;
-	m_logoSprite.move(sf::Vector2f(100, 0) * t_deltaTime.asSeconds());
 	m_player.update(t_deltaTime);
 }
 
@@ -83,42 +81,16 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::White);
-	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	m_window.setView(m_player.getView());
 	m_player.render(m_window);
+	m_mapBorder.setPosition(m_player.getPos().x + 300, m_player.getPos().y + 200);
+	m_window.draw(m_mapBorder);
+
+	m_window.setView(m_miniMap);
+
+
+	m_miniMap.setCenter(m_player.getPos());
+	m_window.draw(m_player.getSprite());
+	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	m_window.display();
-}
-
-/// <summary>
-/// load the font and setup the text message for screen
-/// </summary>
-void Game::setupFontAndText()
-{
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
-	{
-		std::cout << "problem loading arial black font" << std::endl;
-	}
-	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-	m_welcomeMessage.setFillColor(sf::Color::Black);
-	m_welcomeMessage.setOutlineThickness(3.0f);
-
-}
-
-/// <summary>
-/// load the texture and setup the sprite for the logo
-/// </summary>
-void Game::setupSprite()
-{
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
-	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
-	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
 }

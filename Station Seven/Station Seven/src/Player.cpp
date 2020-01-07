@@ -18,6 +18,8 @@ Player::Player(ResourceManager& t_resources) :
 	m_playerSprite.setPosition(m_position);
 	m_playerHitbox.setFillColor(sf::Color::Black);
 	m_playerHitbox.setPosition(m_position);
+
+	m_view.setSize(1200, 800);
 }
 
 void Player::update(sf::Time t_deltaTime)
@@ -70,28 +72,30 @@ void Player::handleInput()
 
 void Player::borderCheck()
 {
-	//Window checking
-	if (m_playerSprite.getPosition().x > 1920)
-	{
-		m_playerSprite.setPosition(-200, m_playerSprite.getPosition().y);
-	}
-	if (m_playerSprite.getPosition().y > 1080)
-	{
-		m_playerSprite.setPosition(m_playerSprite.getPosition().x, -200);
-	}
-	if (m_playerSprite.getPosition().x < -200)
-	{
-		m_playerSprite.setPosition(1920, m_playerSprite.getPosition().y);
-	}
-	if (m_playerSprite.getPosition().y < -200)
-	{
-		m_playerSprite.setPosition(m_playerSprite.getPosition().x, 1080);
-	}
+	////Window checking
+	//if (m_playerSprite.getPosition().x > 1200)
+	//{
+	//	m_playerSprite.setPosition(-200, m_playerSprite.getPosition().y);
+	//}
+	//if (m_playerSprite.getPosition().y > 800)
+	//{
+	//	m_playerSprite.setPosition(m_playerSprite.getPosition().x, -200);
+	//}
+	//if (m_playerSprite.getPosition().x < -200)
+	//{
+	//	m_playerSprite.setPosition(1200, m_playerSprite.getPosition().y);
+	//}
+	//if (m_playerSprite.getPosition().y < -200)
+	//{
+	//	m_playerSprite.setPosition(m_playerSprite.getPosition().x, 800);
+	//}
 }
 
 
 void Player::render(sf::RenderWindow& window)
 {
+	m_view.setCenter(m_playerSprite.getPosition());
+	window.setView(m_view);
 	window.draw(m_playerHitbox);
 	window.draw(m_playerSprite);
 	for (Bullet* bullet : m_bullets) {
@@ -155,4 +159,14 @@ sf::Vector2f Player::getPos()
 sf::Vector2f Player::getVel()
 {
 	return sf::Vector2f(m_velocity.x, m_velocity.y);
+}
+
+sf::View Player::getView()
+{
+	return m_view;
+}
+
+sf::Sprite Player::getSprite()
+{
+	return m_playerSprite;
 }

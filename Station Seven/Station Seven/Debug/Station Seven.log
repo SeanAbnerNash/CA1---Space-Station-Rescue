@@ -1,5 +1,5 @@
 ﻿  Player.cpp
   game.cpp
-  main.cpp
+C:\Users\wysoc\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\src\game.cpp(4,32): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
   Generating Code...
   Station Seven.vcxproj -> C:\Users\wysoc\Desktop\CA1---Space-Station-Rescue\Station Seven\Debug\Station Seven.exe

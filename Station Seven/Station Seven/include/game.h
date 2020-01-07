@@ -37,7 +37,8 @@ private:
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
 	Player m_player;
-
+	sf::View m_miniMap;
+	sf::RectangleShape m_mapBorder;
 };
 
 #endif // !GAME
