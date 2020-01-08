@@ -1,27 +1,54 @@
 #include "Player.h"
 
+/// <summary>
+/// Player Contructor
+/// setting up physical attributes of player object
+/// </summary>
+/// <param name="t_resources"></param>
 Player::Player(ResourceManager& t_resources) :
 	m_resourceMng(t_resources),
 	m_velocity(0, 0),
-	m_position(300, 300),
+	m_position(0, 0),
 	m_speed(0),
 	m_maxSpeed(750),
 	m_rotation(90),
 	m_heading(0, 0)
 {
-	m_playerHitbox.setRadius(m_hitboxRadius);
-	m_playerHitbox.setOrigin(m_hitboxRadius, m_hitboxRadius);	
+	initPlayer();
+	//setting size of main view
+	m_view.setSize(1200, 800);
+}
+/// <summary>
+/// Player destructor
+/// </summary>
+Player::~Player()
+{
+}
 
+/// <summary>
+/// initialising the player
+/// </summary>
+void Player::initPlayer()
+{
+	//circle for player hitbox
+	m_playerHitbox.setRadius(m_hitboxRadius);
+	m_playerHitbox.setOrigin(m_hitboxRadius, m_hitboxRadius);
+
+	//setting all textures,origins,scale for player object
 	m_playerSprite.setTexture(m_resourceMng.getTexture(TextureID::PLAYERSPRITE));
 	m_playerSprite.setOrigin(m_playerSprite.getLocalBounds().width / 2.0f, m_playerSprite.getLocalBounds().height / 2.0f);
-	m_playerSprite.setScale(m_spriteDimensions.x /m_playerSprite.getGlobalBounds().width, m_spriteDimensions.y / m_playerSprite.getGlobalBounds().height);
+	m_playerSprite.setScale(m_spriteDimensions.x / m_playerSprite.getGlobalBounds().width, m_spriteDimensions.y / m_playerSprite.getGlobalBounds().height);
+	//
 	m_playerSprite.setPosition(m_position);
 	m_playerHitbox.setFillColor(sf::Color::Black);
 	m_playerHitbox.setPosition(m_position);
 
-	m_view.setSize(1200, 800);
 }
-
+/// <summary>
+/// updating the physics of player,
+/// handling input,
+/// </summary>
+/// <param name="t_deltaTime"></param>
 void Player::update(sf::Time t_deltaTime)
 {
 	handleInput();
@@ -45,7 +72,9 @@ void Player::update(sf::Time t_deltaTime)
 	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
 }
 
-
+/// <summary>
+/// checking for keyboard input for movement and shooting bullets and handling it
+/// </summary>
 void Player::handleInput()
 {
 	m_bulletCounter++;
@@ -72,7 +101,9 @@ void Player::handleInput()
 		m_bullets.push_back(new Bullet(m_playerSprite.getPosition(), m_playerSprite.getRotation() + 90, m_resourceMng));
 	}
 }
-
+/// <summary>
+/// border checking and loop the player object
+/// </summary>
 void Player::borderCheck()
 {
 	////Window checking
@@ -94,7 +125,10 @@ void Player::borderCheck()
 	//}
 }
 
-
+/// <summary>
+/// renders everything
+/// </summary>
+/// <param name="window"></param>
 void Player::render(sf::RenderWindow& window)
 {
 	m_view.setCenter(m_playerSprite.getPosition());
@@ -109,22 +143,32 @@ void Player::render(sf::RenderWindow& window)
 
 	}
 }
-
+/// <summary>
+/// get Xposition of player
+/// </summary>
+/// <returns></returns>
 float Player::getPositionX()
 {
 	return m_position.x;
 }
-
+/// <summary>
+/// get Yposition of player
+/// </summary>
+/// <returns></returns>
 float Player::getPositionY()
 {
 	return m_position.y;
 }
-
+/// <summary>
+/// increase rotation of player ship
+/// </summary>
 void Player::increaseRotation()
 {
 	m_rotation += 3.0f;
 }
-
+/// <summary>
+/// increase speed of player ship
+/// </summary>
 void Player::increaseSpeed()
 {
 	if (m_speed < m_maxSpeed)
@@ -132,7 +176,9 @@ void Player::increaseSpeed()
 		m_speed += 10.0f;
 	}
 }
-
+/// <summary>
+/// decrease speed of player ship
+/// </summary>
 void Player::decreaseSpeed()
 {
 	if (m_speed > 0.0f)
@@ -140,7 +186,9 @@ void Player::decreaseSpeed()
 		m_speed -= 10.0f;
 	}
 }
-
+/// <summary>
+/// decrease rotation of player ship
+/// </summary>
 void Player::decreaseRotation()
 {
 	if (m_rotation != 0.0f)
@@ -153,23 +201,52 @@ void Player::decreaseRotation()
 	}
 
 }
-
+/// <summary>
+/// get Position of player sprite
+/// </summary>
+/// <returns></returns>
 sf::Vector2f Player::getPos()
 {
 	return m_playerSprite.getPosition();
 }
-
+/// <summary>
+/// get velocity of player sprite
+/// </summary>
+/// <returns></returns>
 sf::Vector2f Player::getVel()
 {
 	return sf::Vector2f(m_velocity.x, m_velocity.y);
 }
-
+/// <summary>
+/// get the main view of player sprite
+/// </summary>
+/// <returns></returns>
 sf::View Player::getView()
 {
 	return m_view;
 }
-
+/// <summary>
+/// get the player sprite
+/// </summary>
+/// <returns></returns>
 sf::Sprite Player::getSprite()
 {
 	return m_playerSprite;
+}
+/// <summary>
+/// collision detection check between player and workers
+/// </summary>
+/// <param name="t_workers"></param>
+void Player::playerWorkerCollision(std::vector<Worker*> *t_workers)
+{
+	//TODO: doesnt really work need to work on it
+	for (int i = 0; i< t_workers->size(); ++i)
+	{
+		if (Maths::dist(m_position, t_workers->at(i)->getPosition()) < 100)
+		{
+			std::cout << "worker collected" << std::endl;
+			t_workers->erase(t_workers->begin() + i);
+			//++m_workerCollected;
+		}
+	}
 }

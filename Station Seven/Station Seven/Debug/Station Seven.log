@@ -1,4 +1,10 @@
-﻿  Worker.cpp
-C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Worker.h(35,41): warning C4305:  'initializing': truncation from 'double' to 'const float'
-C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Worker.cpp(10,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Player.cpp
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Maths.h(4,47): warning C4305:  'initializing': truncation from 'double' to 'float'
+  game.cpp
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\src\Player.cpp(191,19): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Maths.h(4,47): warning C4305:  'initializing': truncation from 'double' to 'float'
+  main.cpp
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\src\game.cpp(4,32): warning C4244:  'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
+  Generating Code...
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Maths.h(4,47): warning C4305:  'initializing': truncation from 'double' to 'float'
   Station Seven.vcxproj -> C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Debug\Station Seven.exe

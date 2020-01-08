@@ -1,5 +1,11 @@
 #include "Worker.h"
 
+/// <summary>
+/// Constructor for workers
+/// </summary>
+/// <param name="t_state"></param>
+/// <param name="t_initialPos"></param>
+/// <param name="t_resources"></param>
 Worker::Worker(WORKERSTATE t_state, sf::Vector2f t_initialPos, ResourceManager& t_resources):
 	m_state(t_state),
 	m_position(t_initialPos),
@@ -8,16 +14,22 @@ Worker::Worker(WORKERSTATE t_state, sf::Vector2f t_initialPos, ResourceManager& 
 	m_rotation(0)
 {
 	srand(time(0));
-	m_workerSprite.setTexture(m_resourceMng.getTexture(TextureID::PLAYERSPRITE));
+	m_workerSprite.setTexture(m_resourceMng.getTexture(TextureID::WORKER));
 	m_workerSprite.setOrigin(m_workerSprite.getLocalBounds().width / 2, m_workerSprite.getLocalBounds().height / 2);
 	m_workerSprite.setScale(m_spriteDimensions.x / m_workerSprite.getGlobalBounds().width, m_spriteDimensions.y / m_workerSprite.getGlobalBounds().height);
 	m_workerSprite.setPosition(m_position);
 }
-
+/// <summary>
+/// destructor for workers
+/// </summary>
 Worker::~Worker()
 {
 }
-
+/// <summary>
+/// update for the workers
+/// </summary>
+/// <param name="t_playerPos"></param>
+/// <param name="t_playerVel"></param>
 void Worker::update(sf::Vector2f t_playerPos, sf::Vector2f t_playerVel)
 {
 	switch (m_state)
@@ -28,60 +40,32 @@ void Worker::update(sf::Vector2f t_playerPos, sf::Vector2f t_playerVel)
 	case WANDER:
 		wander(t_playerPos);
 		break;
+	default:
 		break;
 	}
 	m_position += m_velocity;
 	m_workerSprite.setPosition(m_position);
 	m_workerSprite.setRotation(m_rotation);
 }
-
+/// <summary>
+/// handle rendering of workers sprite
+/// </summary>
+/// <param name="t_window"></param>
 void Worker::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_workerSprite);
 }
-
-float Worker::getNewOrientation(float t_rot, sf::Vector2f t_vel)
-{
-	if (getLength(t_vel) > 0)
-	{
-		return (atan2(t_vel.y, t_vel.x)) * (180 / PI);
-	}
-	else
-	{
-		return t_rot;
-	}
-}
-
-float Worker::getLength(sf::Vector2f t_v)
-{
-	return sqrt((t_v.x * t_v.x) + (t_v.y * t_v.y));
-}
-
-sf::Vector2f Worker::normalize(sf::Vector2f t_v)
-{
-	float length = getLength(t_v);
-
-	if (length != 0)
-	{
-		t_v.x = t_v.x / length;
-		t_v.y = t_v.y / length;
-	}
-	return t_v;
-}
-
-float Worker::dist(sf::Vector2f t_v1, sf::Vector2f t_v2)
-{
-	float distance = std::sqrt(((t_v1.x - t_v2.x) * (t_v1.x - t_v2.x)) + ((t_v1.y - t_v2.y) * (t_v1.y - t_v2.y)));
-	return distance;
-}
-
+/// <summary>
+/// wander function of the workers
+/// </summary>
+/// <param name="t_playerPos"></param>
 void Worker::wander(sf::Vector2f t_playerPos)
 {
 	int m_randomDirection = (rand() % 3) - 1;
 
 	m_rotation += (MAX_ROTATION * m_randomDirection);
 
-	float magnitude = getLength(m_velocity);
+	float magnitude = Maths::getLength(m_velocity);
 	sf::Vector2f direction = sf::Vector2f(std::cos(m_rotation * (PI / 180)), std::sin(m_rotation) * (PI / 180));
 	m_velocity = magnitude * (sf::Vector2f(std::cos(m_rotation * (PI / 180)), std::sin(m_rotation * (PI / 180))));
 	m_velocity += direction;
@@ -92,13 +76,33 @@ void Worker::wander(sf::Vector2f t_playerPos)
 
 	}
 	m_workerSprite.setRotation(m_rotation);
+	std::cout << m_position.x << m_position.y << std::endl;
 }
-
+/// <summary>
+/// fleeing function of the workers
+/// </summary>
+/// <param name="t_playerPos"></param>
 void Worker::flee(sf::Vector2f t_playerPos)
 {
 	m_velocity = m_position - t_playerPos;
-	m_velocity = normalize(m_velocity);
+	m_velocity = Maths::normalize(m_velocity);
 	m_velocity *= MAX_SPEED;
-	m_rotation = getNewOrientation(m_rotation, m_velocity);
+	m_rotation = Maths::getNewOrientation(m_rotation, m_velocity);
 	m_workerSprite.setRotation(m_rotation);
+}
+/// <summary>
+/// get position function of the workers object
+/// </summary>
+/// <returns></returns>
+sf::Vector2f Worker::getPosition()
+{
+	return m_position;
+}
+/// <summary>
+/// get sprite of the workers object
+/// </summary>
+/// <returns></returns>
+sf::Sprite Worker::getSprite()
+{
+	return m_workerSprite;
 }

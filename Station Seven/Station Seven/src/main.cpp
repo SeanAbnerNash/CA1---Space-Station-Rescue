@@ -1,7 +1,7 @@
 /// <summary>
 /// simple game loop for SFML[2.4.2]
 /// 
-/// @author Peter Lowe
+/// @author Patryk Wysocki & Sean Nash
 /// @date May 21017
 /// </summary>
 
@@ -22,23 +22,17 @@
 
 #include <SFML/Graphics.hpp>
 
-
-
 #include "game.h"
-//#include <SFGUI/Canvas.hpp>
 
 /// <summary>
-/// main enrtry point
+/// main entry point
 /// </summary>
 /// <returns>true</returns>
 int main()
 {
-	// Create an SFGUI. This is required before doing anything with SFGUI.
-	//sfg::SFGUI sfgui;
-
-	//opengl_window->SetTitle("OpenGL canvas");
-	//opengl_window->SetPosition(sf::Vector2f(50.f, 50.f));
+	//instantiate game object
 	Game game;
+	//run the game
 	game.run();
 
 	return 1;

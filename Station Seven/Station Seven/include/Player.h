@@ -4,13 +4,20 @@
 #include <iostream>
 #include "Bullet.h"
 #include <vector>
-
+#include "Worker.h"
+#include "Maths.h"
 class Player
 {
 public:
 	Player(ResourceManager& t_resources);
+	~Player();
+/// 
+/// </summary>/ <summary>
+/// 
+/// </summary>();
 	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
+	void initPlayer();
 	float getPositionX();
 	float getPositionY();
 	void increaseRotation();
@@ -21,6 +28,7 @@ public:
 	sf::Vector2f getVel();
 	sf::View getView();
 	sf::Sprite getSprite();
+	void playerWorkerCollision(std::vector<Worker*>*t_workers);
 private:
 	void handleInput();
 	void borderCheck();
@@ -30,7 +38,6 @@ private:
 	float m_rotation;
 	float m_speed;
 	float m_hitboxRadius{ 50 };
-
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_heading;

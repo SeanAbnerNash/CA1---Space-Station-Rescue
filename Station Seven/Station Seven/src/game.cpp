@@ -2,7 +2,12 @@
 #include <iostream>
 
 static sf::Int32 MS_PER_UPDATE = 10.0;
-
+/// <summary>
+/// game contruction that initialises 
+/// the window 
+/// the player 
+/// the minimap
+/// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ 1200, 800, 32 }, "SFML Game" },
 	m_player(m_resourceMng),
@@ -14,15 +19,19 @@ Game::Game() :
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(200, 200), m_resourceMng));
-	m_workers.push_back(new Worker(WORKERSTATE::FLEE, sf::Vector2f(300, 200), m_resourceMng));
 }
 
-
+/// <summary>
+/// destructor of game object
+/// </summary>
 Game::~Game()
 {
 }
 
-
+/// <summary>
+/// run fucntion handles the updating of the game
+/// this is the game loop.
+/// </summary>
 void Game::run()
 {
 	sf::Clock clock;
@@ -80,6 +89,7 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		workers->update(m_player.getPos(),m_player.getVel());
 	}
+	m_player.playerWorkerCollision(&m_workers);
 }
 
 /// <summary>
@@ -102,6 +112,10 @@ void Game::render()
 
 	m_miniMap.setCenter(m_player.getPos());
 	m_window.draw(m_player.getSprite());
+	for (Worker* workers : m_workers)
+	{
+		m_window.draw(workers->getSprite());
+	}
 	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	m_window.display();
 }

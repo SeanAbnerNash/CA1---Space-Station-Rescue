@@ -36,6 +36,7 @@
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="KeyboardHandler.h" />
+    <ClInclude Include="Maths.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
