@@ -12,6 +12,9 @@ Game::Game() :
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
+
+	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(200, 200), m_resourceMng));
+	m_workers.push_back(new Worker(WORKERSTATE::FLEE, sf::Vector2f(300, 200), m_resourceMng));
 }
 
 
@@ -73,6 +76,10 @@ void Game::update(sf::Time t_deltaTime)
 		m_window.close();
 	}
 	m_player.update(t_deltaTime);
+	for (Worker* workers : m_workers)
+	{
+		workers->update(m_player.getPos(),m_player.getVel());
+	}
 }
 
 /// <summary>
@@ -84,6 +91,10 @@ void Game::render()
 	m_window.setView(m_player.getView());
 	m_player.render(m_window);
 	m_mapBorder.setPosition(m_player.getPos().x + 300, m_player.getPos().y + 200);
+	for (Worker* workers : m_workers)
+	{
+		workers->render(m_window);
+	}
 	m_window.draw(m_mapBorder);
 
 	m_window.setView(m_miniMap);

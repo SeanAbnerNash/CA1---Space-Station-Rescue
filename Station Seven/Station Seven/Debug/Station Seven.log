@@ -1,6 +1,4 @@
-﻿  Player.cpp
-  game.cpp
-C:\Users\wysoc\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\src\game.cpp(4,32): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-  main.cpp
-  Generating Code...
-  Station Seven.vcxproj -> C:\Users\wysoc\Desktop\CA1---Space-Station-Rescue\Station Seven\Debug\Station Seven.exe
+﻿  Worker.cpp
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Worker.h(35,41): warning C4305:  'initializing': truncation from 'double' to 'const float'
+C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Station Seven\Worker.cpp(10,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Station Seven.vcxproj -> C:\Users\patrykwysocki\Desktop\CA1---Space-Station-Rescue\Station Seven\Debug\Station Seven.exe

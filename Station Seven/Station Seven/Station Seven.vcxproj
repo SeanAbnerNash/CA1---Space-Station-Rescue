@@ -28,6 +28,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -38,6 +39,7 @@
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="Worker.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

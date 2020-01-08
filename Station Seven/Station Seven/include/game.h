@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.h"
 #include "Player.h"
-
+#include "Worker.h"
 
 
 class Game
@@ -24,10 +24,6 @@ private:
 	void update(sf::Time t_deltaTime);
 	void render();
 	
-	void setupFontAndText();
-	void setupSprite();
-
-
 	ResourceManager m_resourceMng;
 
 	sf::RenderWindow m_window; // main SFML window
@@ -37,6 +33,7 @@ private:
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
 	Player m_player;
+	std::vector<Worker*>m_workers;
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
 };
