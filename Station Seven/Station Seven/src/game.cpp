@@ -14,11 +14,19 @@ Game::Game() :
 	m_exitGame{false} //when true game will exit
 {
 	m_window.setFramerateLimit(60);
+
+	//TODO: THIS IS where we load the map texture that matches our map in grid.cpp
+	//m_worldSprite.setTexture(m_resourceMng.getTexture(TextureID::WORLDMAP));
+	//m_worldSprite.setScale(1, 1);
+	//m_worldSprite.setOrigin(m_worldSprite.getLocalBounds().width / 2, m_worldSprite.getLocalBounds().height / 2);
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(200, 200), m_resourceMng));
+
+	m_miniMap.zoom(2);
+	grid = new Grid();
 }
 
 /// <summary>
@@ -80,6 +88,7 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	grid->update(m_window);
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -97,8 +106,9 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear(sf::Color::Cyan);
 	m_window.setView(m_player.getView());
+	grid->draw(m_window);	// Draws all the tiles
 	m_player.render(m_window);
 	m_mapBorder.setPosition(m_player.getPos().x + 300, m_player.getPos().y + 200);
 	for (Worker* workers : m_workers)

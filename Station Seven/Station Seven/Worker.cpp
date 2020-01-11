@@ -76,7 +76,7 @@ void Worker::wander(sf::Vector2f t_playerPos)
 
 	}
 	m_workerSprite.setRotation(m_rotation);
-	std::cout << m_position.x << m_position.y << std::endl;
+	//std::cout << m_position.x << m_position.y << std::endl;
 }
 /// <summary>
 /// fleeing function of the workers

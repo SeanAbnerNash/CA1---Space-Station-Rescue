@@ -6,8 +6,9 @@
 #include "ResourceManager.h"
 #include "Player.h"
 #include "Worker.h"
+#include "Grid.h"
 
-
+class Grid;
 class Game
 {
 public:
@@ -36,6 +37,7 @@ private:
 	std::vector<Worker*>m_workers;
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
+	Grid* grid;
 };
 
 #endif // !GAME

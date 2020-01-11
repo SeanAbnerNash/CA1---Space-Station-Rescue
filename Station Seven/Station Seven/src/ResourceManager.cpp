@@ -36,20 +36,11 @@ void ResourceManager::loadTextures()
 {
 	try
 	{
-		//m_textureHolder.acquire(TextureID::SPLASH, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\splash.jpg"));
 		m_textureHolder.acquire(TextureID::PLAYERSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\player.png"));
 		m_textureHolder.acquire(TextureID::BULLET, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\bullet.png"));
 		m_textureHolder.acquire(TextureID::WORKER, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worker.png"));
-		//m_textureHolder.acquire(TextureID::PLANETSOLID, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Solid.png"));
-		//m_textureHolder.acquire(TextureID::GOALSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\EndPoint.png"));
-		//m_textureHolder.acquire(TextureID::ARROW_INDICATOR, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\arrowDirection.png"));
-		//m_textureHolder.acquire(TextureID::PORTALSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Portal.png"));
-		//m_textureHolder.acquire(TextureID::PLAYER_SHEET, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\spriteSheet.png"));
-
-		//m_textureHolder.acquire(TextureID::PLANETGAS, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Gas.png"));
-		//m_textureHolder.acquire(TextureID::PLANETLIQUID, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Liquid.png"));
-
-		//m_textureHolder.acquire(TextureID::PLAYER_SHEET_LEFT, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\spriteSheetLeft.png"));
+		//TODO: create the texture
+		//m_textureHolder.acquire(TextureID::WORLDMAP, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worldMap.png"));
 	}
 	catch (thor::ResourceLoadingException& e)
 	{
