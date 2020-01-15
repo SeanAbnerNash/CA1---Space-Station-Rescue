@@ -39,6 +39,8 @@ void ResourceManager::loadTextures()
 		m_textureHolder.acquire(TextureID::PLAYERSPRITE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\player.png"));
 		m_textureHolder.acquire(TextureID::BULLET, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\bullet.png"));
 		m_textureHolder.acquire(TextureID::WORKER, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worker.png"));
+		m_textureHolder.acquire(TextureID::BOMB, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\bomb.png"));
+		m_textureHolder.acquire(TextureID::SHIELD, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\shield.png"));
 		//TODO: create the texture
 		//m_textureHolder.acquire(TextureID::WORLDMAP, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worldMap.png"));
 	}

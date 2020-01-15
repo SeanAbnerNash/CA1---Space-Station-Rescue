@@ -24,7 +24,10 @@ Game::Game() :
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(200, 200), m_resourceMng));
-
+	m_powerups.push_back(new Powerup(sf::Vector2f(100, 200), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(0, 100), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(0, 200), POWERUPTYPE::BOMB, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(0, 300), POWERUPTYPE::BOMB, m_resourceMng));
 	m_miniMap.zoom(2);
 	grid = new Grid();
 }
@@ -98,6 +101,15 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		workers->update(m_player.getPos(),m_player.getVel());
 	}
+	for (Powerup* powerup : m_powerups)
+	{
+		powerup->update();
+		if (powerup->collisionDetection(m_player.getSprite()))
+		{
+			powerup->setAlive(false);
+
+		}
+	}
 	m_player.playerWorkerCollision(&m_workers);
 }
 
@@ -114,6 +126,10 @@ void Game::render()
 	for (Worker* workers : m_workers)
 	{
 		workers->render(m_window);
+	}
+	for (Powerup* powerup : m_powerups)
+	{
+		powerup->render(m_window);
 	}
 	m_window.draw(m_mapBorder);
 

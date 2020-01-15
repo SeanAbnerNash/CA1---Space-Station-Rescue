@@ -7,7 +7,7 @@
 #include "Player.h"
 #include "Worker.h"
 #include "Grid.h"
-
+#include "Powerup.h"
 class Grid;
 class Game
 {
@@ -38,6 +38,7 @@ private:
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
 	Grid* grid;
+	std::vector<Powerup*>m_powerups;
 };
 
 #endif // !GAME

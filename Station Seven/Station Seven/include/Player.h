@@ -11,10 +11,6 @@ class Player
 public:
 	Player(ResourceManager& t_resources);
 	~Player();
-/// 
-/// </summary>/ <summary>
-/// 
-/// </summary>();
 	void update(sf::Time t_deltaTime);
 	void render(sf::RenderWindow& t_window);
 	void initPlayer();
@@ -29,6 +25,8 @@ public:
 	sf::View getView();
 	sf::Sprite getSprite();
 	void playerWorkerCollision(std::vector<Worker*>*t_workers);
+	void activateShield();
+	void activateBomb();
 private:
 	void handleInput();
 	void borderCheck();

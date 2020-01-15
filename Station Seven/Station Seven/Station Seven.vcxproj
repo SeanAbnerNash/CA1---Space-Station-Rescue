@@ -23,6 +23,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
+    <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -41,6 +42,7 @@
     <ClInclude Include="KeyboardHandler.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="PlayScreen.h" />
+    <ClInclude Include="Powerup.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Tile.h" />
