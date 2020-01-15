@@ -41,6 +41,18 @@ void ResourceManager::loadTextures()
 		m_textureHolder.acquire(TextureID::WORKER, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worker.png"));
 		m_textureHolder.acquire(TextureID::BOMB, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\bomb.png"));
 		m_textureHolder.acquire(TextureID::SHIELD, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\shield.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID11, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_1-1.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID21, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_2-1.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID31, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_3-1.png"));
+
+		m_textureHolder.acquire(TextureID::MAPGRID12, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_1-2.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID22, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_2-2.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID32, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_3-2.png"));
+
+		m_textureHolder.acquire(TextureID::MAPGRID13, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_1-3.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID23, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_2-3.png"));
+		m_textureHolder.acquire(TextureID::MAPGRID33, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_3-3.png"));
+
 		//TODO: create the texture
 		//m_textureHolder.acquire(TextureID::WORLDMAP, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worldMap.png"));
 	}

@@ -11,7 +11,9 @@ static sf::Int32 MS_PER_UPDATE = 10.0;
 Game::Game() :
 	m_window{ sf::VideoMode{ 1200, 800, 32 }, "SFML Game" },
 	m_player(m_resourceMng),
-	m_exitGame{false} //when true game will exit
+	m_exitGame{ false }, //when true game will exit
+	m_world(m_resourceMng),
+	m_grid()
 {
 	m_window.setFramerateLimit(60);
 
@@ -29,7 +31,6 @@ Game::Game() :
 	m_powerups.push_back(new Powerup(sf::Vector2f(0, 200), POWERUPTYPE::BOMB, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(0, 300), POWERUPTYPE::BOMB, m_resourceMng));
 	m_miniMap.zoom(2);
-	grid = new Grid();
 }
 
 /// <summary>
@@ -82,6 +83,21 @@ void Game::processEvents()
 				m_exitGame = true;
 			}
 		}
+		if (event.type == sf::Event::MouseButtonPressed)
+		{
+			if (event.mouseButton.button == sf::Mouse::Left)
+			{
+				m_grid.mouseClick(sf::Mouse::getPosition(m_window), 1);
+			}
+			if (event.mouseButton.button == sf::Mouse::Right)
+			{
+				m_grid.mouseClick(sf::Mouse::getPosition(m_window), 2);
+			}
+			if (event.mouseButton.button == sf::Mouse::Middle)
+			{
+				m_grid.mouseClick(sf::Mouse::getPosition(m_window), 3);
+			}
+		}
 	}
 }
 
@@ -91,7 +107,7 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
-	grid->update(m_window);
+	m_grid.update();
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -111,6 +127,7 @@ void Game::update(sf::Time t_deltaTime)
 		}
 	}
 	m_player.playerWorkerCollision(&m_workers);
+	
 }
 
 /// <summary>
@@ -119,8 +136,10 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Cyan);
-	m_window.setView(m_player.getView());
-	grid->draw(m_window);	// Draws all the tiles
+
+	//m_window.setView(m_player.getView());
+	m_world.render(m_window);
+	m_grid.display(m_window);
 	m_player.render(m_window);
 	m_mapBorder.setPosition(m_player.getPos().x + 300, m_player.getPos().y + 200);
 	for (Worker* workers : m_workers)
@@ -131,17 +150,19 @@ void Game::render()
 	{
 		powerup->render(m_window);
 	}
-	m_window.draw(m_mapBorder);
+	
+	//m_window.draw(m_mapBorder);
 
-	m_window.setView(m_miniMap);
+	//m_window.setView(m_miniMap);
 
 
-	m_miniMap.setCenter(m_player.getPos());
+	//m_miniMap.setCenter(m_player.getPos());
 	m_window.draw(m_player.getSprite());
 	for (Worker* workers : m_workers)
 	{
 		m_window.draw(workers->getSprite());
 	}
-	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
+	//m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
+
 	m_window.display();
 }

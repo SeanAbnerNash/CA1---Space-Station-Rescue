@@ -2,6 +2,9 @@
 #include "SFML/Graphics.hpp"
 #include "ResourceManager.h"
 #include "Maths.h"
+#define M_PI           3.14159265358979323846  /* pi */
+#include <Thor/Vectors.hpp>
+
 enum WORKERSTATE
 {
 	FLEE,
@@ -32,5 +35,5 @@ private:
 	float m_rotation;
 
 	const float MAX_SPEED = 1.5f;
-	const float MAX_ROTATION = 4;
+	const float MAX_ROTATION = 2;
 };

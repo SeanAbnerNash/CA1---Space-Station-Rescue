@@ -61,11 +61,16 @@ void Worker::render(sf::RenderWindow& t_window)
 /// <param name="t_playerPos"></param>
 void Worker::wander(sf::Vector2f t_playerPos)
 {
-	int m_randomDirection = (rand() % 3) - 1;
+	float tempAdjuster = (((rand() % 20 + 1)));//Gives a number between 1 and 20
+	tempAdjuster -= 10; //-10 to give a range of -9 and 10,
+	tempAdjuster /= 10;  //divide by 10 to give a range of -0.9 and 1
 
-	m_rotation += (MAX_ROTATION * m_randomDirection);
+	m_rotation = m_rotation + (MAX_ROTATION * tempAdjuster); //Randomly changes current angle by the max which is scaled by the random scalar
+	m_velocity = sf::Vector2f(cos(m_rotation * M_PI / 180), sin(m_rotation * M_PI / 180));//Generates a unit vector in the given angle.
+	m_velocity *= MAX_SPEED;//Scales it by the length of the max speed.
+	m_workerSprite.setRotation(m_rotation);//Updates Sprite
 
-	float magnitude = Maths::getLength(m_velocity);
+	/*float magnitude = Maths::getLength(m_velocity);
 	sf::Vector2f direction = sf::Vector2f(std::cos(m_rotation * (PI / 180)), std::sin(m_rotation) * (PI / 180));
 	m_velocity = magnitude * (sf::Vector2f(std::cos(m_rotation * (PI / 180)), std::sin(m_rotation * (PI / 180))));
 	m_velocity += direction;
@@ -75,7 +80,7 @@ void Worker::wander(sf::Vector2f t_playerPos)
 		m_velocity = direction * MAX_SPEED;
 
 	}
-	m_workerSprite.setRotation(m_rotation);
+	m_workerSprite.setRotation(m_rotation);*/
 	//std::cout << m_position.x << m_position.y << std::endl;
 }
 /// <summary>

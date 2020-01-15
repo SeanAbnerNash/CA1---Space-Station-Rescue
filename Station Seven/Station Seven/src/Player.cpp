@@ -8,7 +8,7 @@
 Player::Player(ResourceManager& t_resources) :
 	m_resourceMng(t_resources),
 	m_velocity(0, 0),
-	m_position(0, 0),
+	m_position(1000, 500),
 	m_speed(0),
 	m_maxSpeed(750),
 	m_rotation(90),
@@ -16,7 +16,7 @@ Player::Player(ResourceManager& t_resources) :
 {
 	initPlayer();
 	//setting size of main view
-	m_view.setSize(1200, 800);
+	m_view.setSize(1500, 1000);
 }
 /// <summary>
 /// Player destructor

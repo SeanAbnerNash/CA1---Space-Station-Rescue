@@ -1,4 +1,4 @@
-// author Peter Lowe
+// Sean Nash & Patryk Wysocki
 #ifndef GAME
 #define GAME
 
@@ -6,9 +6,10 @@
 #include "ResourceManager.h"
 #include "Player.h"
 #include "Worker.h"
-#include "Grid.h"
+#include "TileManager.h"
 #include "Powerup.h"
-class Grid;
+#include "World.h"
+
 class Game
 {
 public:
@@ -37,8 +38,10 @@ private:
 	std::vector<Worker*>m_workers;
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
-	Grid* grid;
+	TileManager m_grid;
 	std::vector<Powerup*>m_powerups;
+	World m_world;
+
 };
 
 #endif // !GAME

@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Powerup.cpp" />
@@ -31,11 +30,12 @@
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="Worker.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Grid.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\ResourceManager.h" />
@@ -46,7 +46,9 @@
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileManager.h" />
     <ClInclude Include="Worker.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
