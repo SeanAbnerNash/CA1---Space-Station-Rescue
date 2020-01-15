@@ -1,10 +1,11 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "ResourceManager.h"
+#include "Maths.h"
 enum POWERUPTYPE
 {
 	SHIELD,
-	BOMB
+	SHOT360
 };
 
 class Powerup
@@ -17,7 +18,7 @@ class Powerup
 		void setAlive(bool t_alive);
 		bool getAlive();
 		POWERUPTYPE getPowerupType();
-		bool collisionDetection(sf::Sprite t_player);
+		bool collisionDetection(sf::Vector2f t_playerPos);
 	private:
 		sf::Vector2f m_position;
 		sf::Vector2f m_spriteDimensions{ 100,100 };

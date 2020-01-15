@@ -15,6 +15,8 @@ Player::Player(ResourceManager& t_resources) :
 	m_heading(0, 0)
 {
 	initPlayer();
+
+
 	//setting size of main view
 	m_view.setSize(1500, 1000);
 }
@@ -30,7 +32,7 @@ Player::~Player()
 /// </summary>
 void Player::initPlayer()
 {
-	//circle for player hitbox
+	////circle for player hitbox
 	m_playerHitbox.setRadius(m_hitboxRadius);
 	m_playerHitbox.setOrigin(m_hitboxRadius, m_hitboxRadius);
 
@@ -42,6 +44,13 @@ void Player::initPlayer()
 	m_playerSprite.setPosition(m_position);
 	m_playerHitbox.setFillColor(sf::Color::Black);
 	m_playerHitbox.setPosition(m_position);
+
+	m_shieldShape.setRadius(m_playerHitbox.getRadius());
+	m_shieldShape.setFillColor(sf::Color(0, 0, 255, 125));
+	m_shieldShape.setOutlineThickness(2);
+	m_shieldShape.setOutlineColor(sf::Color(255, 0, 255, 125));
+	m_shieldShape.setOrigin(m_playerHitbox.getOrigin());
+	m_shieldShape.setPosition(m_playerSprite.getPosition());
 
 }
 /// <summary>
@@ -69,6 +78,17 @@ void Player::update(sf::Time t_deltaTime)
 			m_bullets.erase(m_bullets.begin());
 		}
 	}
+	if (m_shieldActive)
+	{
+		m_shieldTime = m_shieldClock.getElapsedTime();
+
+		if (m_shieldTime.asSeconds() > 10)
+		{
+			m_shieldClock.restart();
+			m_shieldActive = false;
+		}
+	}
+	m_shieldShape.setPosition(m_playerSprite.getPosition());
 	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
 }
 
@@ -93,6 +113,15 @@ void Player::handleInput()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) == true)
 	{
 		decreaseRotation();
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::B) == true && m_bombCollected)
+	{
+		for (int i = 0; i < 360; i += 15) {
+			// Spawn ring of bullets around player
+			m_bullets.push_back(new Bullet(m_playerSprite.getPosition(), i, m_resourceMng));
+			m_bombCollected = false;	// Player has used up his ability
+		}
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) == true && m_bulletCounter > m_bulletTime)
@@ -133,14 +162,19 @@ void Player::render(sf::RenderWindow& window)
 {
 	m_view.setCenter(m_playerSprite.getPosition());
 	window.setView(m_view);
-	window.draw(m_playerHitbox);
+	//window.draw(m_playerHitbox);
 	window.draw(m_playerSprite);
-	for (Bullet* bullet : m_bullets) {
+	for (Bullet* bullet : m_bullets) 
+	{
 		if (bullet) 
 		{
 			bullet->render(window);
 		}
 
+	}
+	if (m_shieldActive)
+	{
+		window.draw(m_shieldShape);
 	}
 }
 /// <summary>
@@ -237,16 +271,33 @@ sf::Sprite Player::getSprite()
 /// collision detection check between player and workers
 /// </summary>
 /// <param name="t_workers"></param>
-void Player::playerWorkerCollision(std::vector<Worker*> *t_workers)
+bool Player::playerWorkerCollision(sf::Vector2f t_workerPos)
 {
-	//TODO: doesnt really work need to work on it
-	for (int i = 0; i< t_workers->size(); ++i)
+	if (Maths::dist(m_position, t_workerPos) < 40)
 	{
-		if (Maths::dist(m_position, t_workers->at(i)->getPosition()) < 100)
-		{
-			std::cout << "worker collected" << std::endl;
-			t_workers->erase(t_workers->begin() + i);
-			//++m_workerCollected;
-		}
+		return true;
+		//++m_workerCollected;
 	}
+	else
+	{
+		return false;
+	}
+}
+
+void Player::activateShield()
+{
+	if (!m_shieldActive)
+	{
+		m_shieldClock.restart();
+		m_shieldActive = true;
+	}
+	else
+	{
+		m_shieldClock.restart();
+	}
+}
+
+void Player::activate360Shot()
+{
+	m_bombCollected = true;
 }

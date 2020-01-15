@@ -54,11 +54,12 @@ POWERUPTYPE Powerup::getPowerupType()
 	return m_powerUpType;
 }
 
-bool Powerup::collisionDetection(sf::Sprite t_player)
+bool Powerup::collisionDetection(sf::Vector2f t_playerPos)
 {
-	if (m_isAlive)
+	if (Maths::dist(m_position, t_playerPos) < 80 && m_isAlive) 
 	{
-		return t_player.getGlobalBounds().intersects(m_powerupSprite.getGlobalBounds());
+		// Checks if player hit pick up
+		return true;
 	}
 	else
 	{

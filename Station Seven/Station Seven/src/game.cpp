@@ -25,11 +25,11 @@ Game::Game() :
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
-	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(200, 200), m_resourceMng));
+	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(900, 500), m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(100, 200), POWERUPTYPE::SHIELD, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(0, 100), POWERUPTYPE::SHIELD, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(0, 200), POWERUPTYPE::BOMB, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(0, 300), POWERUPTYPE::BOMB, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(0, 200), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(0, 300), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_miniMap.zoom(2);
 }
 
@@ -116,17 +116,29 @@ void Game::update(sf::Time t_deltaTime)
 	for (Worker* workers : m_workers)
 	{
 		workers->update(m_player.getPos(),m_player.getVel());
+		if (m_player.playerWorkerCollision(workers->getPosition()))
+		{
+			std::cout << "worker collected" << std::endl;
+		}
 	}
 	for (Powerup* powerup : m_powerups)
 	{
 		powerup->update();
-		if (powerup->collisionDetection(m_player.getSprite()))
+		if (powerup->collisionDetection(m_player.getPos()))
 		{
 			powerup->setAlive(false);
+			if (powerup->getPowerupType() ==POWERUPTYPE::SHIELD)
+			{
+				m_player.activateShield();
+			}
+			else
+			{
+				m_player.activate360Shot();
+			}
 
 		}
 	}
-	m_player.playerWorkerCollision(&m_workers);
+	
 	
 }
 

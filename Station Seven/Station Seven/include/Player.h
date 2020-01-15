@@ -24,9 +24,9 @@ public:
 	sf::Vector2f getVel();
 	sf::View getView();
 	sf::Sprite getSprite();
-	void playerWorkerCollision(std::vector<Worker*>*t_workers);
+	bool playerWorkerCollision(sf::Vector2f t_workerPos);
 	void activateShield();
-	void activateBomb();
+	void activate360Shot();
 private:
 	void handleInput();
 	void borderCheck();
@@ -52,6 +52,12 @@ private:
 	sf::View m_view;
 	int m_bulletCounter;
 	int m_bulletTime = 15;
+
+	bool m_shieldActive = false;
+	bool m_bombCollected = false;
+	sf::CircleShape m_shieldShape;
+	sf::Time m_shieldTime;
+	sf::Clock m_shieldClock;
 	//Position
 	//Max Speed
 	//Current Speed
