@@ -4,9 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.h"
-#include "Player.h"
-#include "Worker.h"
-#include "TileManager.h"
+
+
 #include "Powerup.h"
 #include "World.h"
 
@@ -34,11 +33,8 @@ private:
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-	Player m_player;
-	std::vector<Worker*>m_workers;
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
-	TileManager m_grid;
 	std::vector<Powerup*>m_powerups;
 	World m_world;
 

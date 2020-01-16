@@ -13,6 +13,8 @@ class TileManager
 {
 public:
 	TileManager();
+	~TileManager();
+	TileManager(sf::Vector2f t_startPos);
 	TileManager(sf::Font& t_ArialBlackfont);
 	void display(sf::RenderWindow& m_renderer);
 	void mouseClick(sf::Vector2i t_clickPos, int m_mode);//Mouse click handling
@@ -27,16 +29,19 @@ public:
 	void showPath();//Draws the path.
 	int getHighestCost();
 	int getPathCost();
+	bool withinBounds(sf::Vector2i t_point);
 	void clearPath();//Clears the Path
 	float length(sf::Vector2f t_left, sf::Vector2f t_right);
+	void setGoal(sf::Vector2i t_goal);
 
 
 
 private:
 	std::vector<Tile*> m_grid;
-	sf::Vector2i m_gridSize{ 52,52 };
+	sf::Vector2i m_gridSize{ 60,60 };
 	sf::Vector2f m_tileSize{ 50,50 };
 	sf::Vector2f m_tileGap{ 0,0 };
+	sf::Vector2f m_startingPos{ 0,0 };
 	Tile* m_start = nullptr;
 	Tile* m_end = nullptr;
 	bool gridChanged{ true };
@@ -47,7 +52,7 @@ private:
 	void setUpGrid();//Initially sets up the grid.
 	int m_highestCost{ 0 };//Highest cost tile on the grid
 	int m_pathCost{ 0 };//Cumulative cost of the path
-	bool m_drawVector{ false };
+	bool m_drawVector{ true };
 	bool m_drawCost{ false };
 	bool m_drawHeatMap{ false };
 

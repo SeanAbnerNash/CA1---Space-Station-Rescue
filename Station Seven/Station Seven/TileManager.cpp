@@ -15,6 +15,20 @@ TileManager::TileManager()
 	setUpGrid();
 }
 
+TileManager::~TileManager()
+{
+}
+
+TileManager::TileManager(sf::Vector2f t_startPos) :
+	m_startingPos{t_startPos}
+{
+	m_gridNumber = (m_gridSize.x + 1) * (m_gridSize.y + 1);
+	for (int i = 0; i < m_gridNumber; i++) {
+		m_grid.push_back(new Tile(&m_highestCost));
+	}
+	setUpGrid();
+}
+
 TileManager::TileManager(sf::Font& t_ArialBlackfont) {
 	m_gridNumber = (m_gridSize.x + 1) * (m_gridSize.y + 1);
 	for (int i = 0; i < m_gridNumber; i++) {
@@ -31,37 +45,42 @@ void TileManager::display(sf::RenderWindow& m_renderer) {
 
 void TileManager::mouseClick(sf::Vector2i t_clickPos, int m_mode) {
 
+	if (withinBounds(t_clickPos))
+	{
+		sf::Vector2i temp;
+		temp.x = t_clickPos.x - m_startingPos.x;
+		temp.y = t_clickPos.y - m_startingPos.y;
 
-	Tile* i = getTileAt(t_clickPos);
-	gridChanged = true;
-	switch (m_mode) {
-	case 1:
-		resetOldTile(i, m_mode);
-		if (m_start != nullptr)
-		{
-			m_start->setMode(m_mode);
+		Tile* i = getTileAt(temp);
+		gridChanged = true;
+		switch (m_mode) {
+		case 1:
+			resetOldTile(i, m_mode);
+			if (m_start != nullptr)
+			{
+				m_start->setMode(m_mode);
+			}
+			m_start = i;
+			setUpVectorGrid();
+			i->setMode(m_mode);
+			break;
+		case 2:
+			resetOldTile(i, m_mode);
+			if (m_end != nullptr)
+			{
+				m_end->setMode(m_mode);
+			}
+			m_end = i;
+			i->setMode(m_mode);
+			break; //optional
+		case 3:
+			resetOldTile(i, m_mode);
+			i->setMode(m_mode);
+			setUpVectorGrid();
+			break; //optional
 		}
-		m_start = i;
-		setUpVectorGrid();
-		i->setMode(m_mode);
-		break;
-	case 2:
-		resetOldTile(i, m_mode);
-		if (m_end != nullptr)
-		{
-			m_end->setMode(m_mode);
-		}
-		m_end = i;
-		i->setMode(m_mode);
-		break; //optional
-	case 3:
-		resetOldTile(i, m_mode);
-		i->setMode(m_mode);
-		setUpVectorGrid();
-		break; //optional
+
 	}
-
-
 
 
 }
@@ -248,6 +267,18 @@ int TileManager::getPathCost()
 	return m_pathCost;
 }
 
+bool TileManager::withinBounds(sf::Vector2i t_point)
+{
+	if (t_point.x >= m_startingPos.x && t_point.x <= (m_startingPos.x + (m_gridSize.x * (m_tileSize.x + m_tileGap.x))))
+	{
+		if (t_point.y >= m_startingPos.y && t_point.y <= (m_startingPos.y + (m_gridSize.y * (m_tileSize.y + m_tileGap.y))))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void TileManager::clearPath()
 {
 	for (auto& i : m_grid)
@@ -264,6 +295,31 @@ float TileManager::length(sf::Vector2f t_left, sf::Vector2f t_right)
 {
 	sf::Vector2f vectorBetween = t_right - t_left;
 	return sqrt((vectorBetween.x * vectorBetween.x) + (vectorBetween.y * vectorBetween.y));
+}
+
+void TileManager::setGoal(sf::Vector2i t_goal)
+{
+	if (withinBounds(t_goal))
+	{
+		sf::Vector2i temp;
+		temp.x = t_goal.x - m_startingPos.x;
+		temp.y = t_goal.y - m_startingPos.y;
+
+		Tile* i = getTileAt(temp);
+		if (i->getMode() != 3 && i->getMode() != 1)//if it's not an obstacle or a goal
+		{
+			gridChanged = true;
+			resetOldTile(i, 1);
+			if (m_start != nullptr)
+			{
+				m_start->setMode(1);
+			}
+			m_start = i;
+			setUpVectorGrid();
+			i->setMode(1);
+			
+		}
+	}
 }
 
 void TileManager::setUpVectorGrid()
@@ -324,7 +380,7 @@ void TileManager::setUpGrid() {
 	for (auto& i : m_grid) {
 		if (yCount <= m_gridSize.y)
 		{
-			i->setPos(sf::Vector2f((m_tileSize.x + m_tileGap.x) * xCount, (m_tileSize.y + m_tileGap.y) * yCount));
+			i->setPos(sf::Vector2f(m_startingPos.x + ((m_tileSize.x + m_tileGap.x) * xCount), m_startingPos.y + ((m_tileSize.y + m_tileGap.y) * yCount)));
 			i->setSize(m_tileSize);
 			i->setID(sf::Vector2f(xCount, yCount));
 			xCount++;
