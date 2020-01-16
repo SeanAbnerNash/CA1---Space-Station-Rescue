@@ -14,9 +14,10 @@ class Nest
 		void createMissile();
 		sf::Vector2f getPosition();
 		bool getDead();
+		sf::Vector2f m_position;
 	private:
 		ResourceManager& m_resourceMng;
-		sf::Vector2f m_position;
+		
 		int m_health;
 		bool m_dead;
 		sf::Sprite m_nestSprite;

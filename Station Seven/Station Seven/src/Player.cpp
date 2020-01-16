@@ -305,7 +305,7 @@ void Player::activate360Shot()
 void Player::checkNest(Nest& nest) 
 {
 	std::cout << Maths::dist(m_position, nest.getPosition()) << std::endl;
-	if (Maths::dist(m_position, nest.getPosition()) < 510) 
+	if (Maths::dist(m_position, nest.m_position) < 510)
 	{
 		// Checks if player is close to the nest
 		nest.createMissile();	// Nest fires bullet at player
