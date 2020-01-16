@@ -45,6 +45,8 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_grids.push_back(new TileManager(sf::Vector2f(m_map[7].getPosition().x -12, m_map[7].getPosition().y - 32)));
 	m_grids.push_back(new TileManager(sf::Vector2f(m_map[8].getPosition().x -32, m_map[8].getPosition().y - 32)));
 
+	m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
+	m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
 }
 
 World::~World()
@@ -65,6 +67,16 @@ void World::update( sf::Time t_deltaTime)
 	}
 	m_grids[m_playerGridLocation]->update();
 	playerTrackingPathfinding();
+	for (int i = 0; i < m_nests.size(); ++i)
+	{
+		m_nests.at(i)->update(t_deltaTime, m_player.getPos());
+		m_player.checkNest(*m_nests.at(i));
+		if (m_nests.at(i)->getDead())
+		{
+			m_nests.erase(m_nests.begin() + i);
+		}
+	}
+
 }
 
 void World::render(sf::RenderWindow& t_window)
@@ -75,6 +87,10 @@ void World::render(sf::RenderWindow& t_window)
 	}
 	m_grids[m_playerGridLocation]->display(t_window);
 	m_player.render(t_window);
+
+	for (Nest* nest : m_nests) {
+		nest->render(m_window);	// Draw nest
+	}
 }
 
 void World::mouseClick(sf::Vector2i t_clickPos, int m_mode)

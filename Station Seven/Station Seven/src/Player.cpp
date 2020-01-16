@@ -301,3 +301,22 @@ void Player::activate360Shot()
 {
 	m_bombCollected = true;
 }
+
+void Player::checkNest(Nest& nest) 
+{
+	std::cout << Maths::dist(m_position, nest.getPosition()) << std::endl;
+	if (Maths::dist(m_position, nest.getPosition()) < 510) 
+	{
+		// Checks if player is close to the nest
+		nest.createMissile();	// Nest fires bullet at player
+	}
+	for (int i = 0; i < m_bullets.size(); i++) {
+		// Loops through all of the player bullets
+		if (Maths::dist(m_bullets.at(i)->getPosition(), nest.getPosition()) < 50) {
+			// Checks to see if a bullet has hit the nest
+			nest.takeDamage();	// Nest loses health
+			m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+		}
+
+	}
+}

@@ -8,6 +8,7 @@
 #include <iostream>
 #define M_PI           3.14159265358979323846  /* pi */
 #include <Thor/Vectors.hpp>
+#include "Nest.h"
 
 class World
 {
@@ -34,5 +35,6 @@ private:
 	sf::RenderWindow& m_window;
 	int m_playerGridLocation{ 0 };
 	sf::Vector2i m_click{ 600,400 };
+	std::vector<Nest*> m_nests;
 };
 

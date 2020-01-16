@@ -6,6 +6,7 @@
 #include <vector>
 #include "Worker.h"
 #include "Maths.h"
+#include "Nest.h"
 class Player
 {
 public:
@@ -27,9 +28,11 @@ public:
 	bool playerWorkerCollision(sf::Vector2f t_workerPos);
 	void activateShield();
 	void activate360Shot();
+	void checkNest(Nest& nest);
 private:
 	void handleInput();
 	void borderCheck();
+	
 	//Angle
 	float m_angle;
 	float m_maxSpeed;

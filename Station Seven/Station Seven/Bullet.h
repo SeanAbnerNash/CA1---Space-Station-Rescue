@@ -14,6 +14,7 @@ public:
 	void render(sf::RenderWindow& window);
 	int getLifetime();
 	const int BULLET_MAX_LIFE = 100;
+	sf::Vector2f getPosition();
 private:
 
 	sf::Vector2f m_position;

@@ -29,6 +29,9 @@ Game::Game() :
 	m_powerups.push_back(new Powerup(sf::Vector2f(0, 200), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(0, 300), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_miniMap.zoom(2);
+
+
+
 }
 
 /// <summary>

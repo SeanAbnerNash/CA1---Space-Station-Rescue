@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
+    <ClCompile Include="Missile.cpp" />
+    <ClCompile Include="Nest.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -41,6 +43,8 @@
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="KeyboardHandler.h" />
     <ClInclude Include="Maths.h" />
+    <ClInclude Include="Missile.h" />
+    <ClInclude Include="Nest.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Screen.h" />

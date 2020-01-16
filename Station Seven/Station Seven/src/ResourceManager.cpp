@@ -53,6 +53,9 @@ void ResourceManager::loadTextures()
 		m_textureHolder.acquire(TextureID::MAPGRID23, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_2-3.png"));
 		m_textureHolder.acquire(TextureID::MAPGRID33, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\Map_3-3.png"));
 
+		m_textureHolder.acquire(TextureID::MISSILE, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\missile.png"));
+		m_textureHolder.acquire(TextureID::NEST, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\nest.png"));
+
 		//TODO: create the texture
 		//m_textureHolder.acquire(TextureID::WORLDMAP, thor::Resources::fromFile<sf::Texture>("ASSETS\\IMAGES\\worldMap.png"));
 	}
