@@ -31,6 +31,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="Sweeper.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="Worker.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="Sweeper.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="Worker.h" />

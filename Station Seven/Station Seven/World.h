@@ -10,6 +10,7 @@
 #include <Thor/Vectors.hpp>
 #include "Nest.h"
 #include "Powerup.h"
+#include "Sweeper.h"
 class World
 {
 public:
@@ -37,5 +38,6 @@ private:
 	sf::Vector2i m_click{ 600,400 };
 	std::vector<Nest*> m_nests;
 	std::vector<Powerup*>m_powerups;
+	std::vector<Sweeper*>m_sweepers;
 };
 

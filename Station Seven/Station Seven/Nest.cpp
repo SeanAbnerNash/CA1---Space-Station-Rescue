@@ -31,8 +31,19 @@ Nest::~Nest()
 /// </summary>
 /// <param name="t_deltaTime"></param>
 /// <param name="t_playerPos"></param>
-void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos)
+void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos, std::vector<Worker*> t_workers)
 {
+	m_sweeperTimer++;
+	if (m_sweeperTimer > 100 && m_sweepers.size() < 5)
+	{
+		createSweeper();	// Spawn sweeper
+	}
+	for (Sweeper* sweeper : m_sweepers) {
+		// Loop through enemies
+
+		sweeper->update(t_deltaTime,t_playerPos);	// Update sweeper
+		sweeper->inLineofSight(t_workers);	// Have enemies check if worker is in line of sight
+	}
 	//shoot missile
 	for (int i = 0; i < m_missiles.size(); i++) {
 		// Loop through missiles
@@ -54,8 +65,11 @@ void Nest::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_nestSprite);
 
-	for (Missile* m : m_missiles) {
-		m->render(t_window);	// Draw all the missiles
+	for (Missile* missile : m_missiles) {
+		missile->render(t_window);	// Draw all the missiles
+	}
+	for (Sweeper* sweeper : m_sweepers) {
+		sweeper->render(t_window);	// Draw all the sweepers
 	}
 }
 
@@ -81,6 +95,13 @@ void Nest::createMissile()
 		// If missile is currently fired 
 		m_missiles.push_back(new Missile(m_position, m_resourceMng));	// Fire missile
 	}
+}
+// Function for spawning a new sweeper bot
+void Nest::createSweeper() {
+	m_sweeperTimer = 0;	// Reset the timer
+
+						// Spawn a new sweeper
+	m_sweepers.push_back(new Sweeper(m_position, State::PATROL, m_resourceMng));
 }
 /// <summary>
 /// getposition of nest

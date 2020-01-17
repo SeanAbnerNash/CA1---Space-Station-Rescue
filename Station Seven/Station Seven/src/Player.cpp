@@ -291,7 +291,10 @@ void Player::playerWorkerCollision(std::vector<Worker*> *t_worker)
 	}
 
 }
-
+/// <summary>
+/// activate shield arounmd dplayer
+/// </summary>
+/// <returns></returns>
 void Player::activateShield()
 {
 	if (!m_shieldActive)
@@ -305,11 +308,19 @@ void Player::activateShield()
 	}
 }
 
+/// <summary>
+/// activate 360 shot radius shot around player
+/// </summary>
+/// <returns></returns>
 void Player::activate360Shot()
 {
 	m_bombCollected = true;
 }
 
+/// <summary>
+/// collision detection check between player and nests
+/// </summary>
+/// <param name="nest"></param>
 void Player::checkNest(Nest& nest) 
 {
 	
@@ -326,5 +337,24 @@ void Player::checkNest(Nest& nest)
 			m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
 		}
 
+	}
+}
+/// <summary>
+/// collision detection check between player and sweepers
+/// </summary>
+/// </summary>
+/// <param name="t_sweepers"></param>
+void Player::checkSweepers(std::vector<Sweeper*>& t_sweepers)
+{
+	for (int i = 0; i < m_bullets.size(); ++i) {
+		for (int j = 0; j < t_sweepers.size(); ++j) {
+			// Loops through all the sweeper bots
+			if (m_bullets.size() > i && Maths::dist(m_bullets.at(i)->getPosition(), t_sweepers.at(j)->getPosition()) < 75) {
+				// Checks if bullet has hit enemy
+				m_workerCollected += t_sweepers.at(j)->m_collected;	// Player gets any worker that sweeper has collected
+				t_sweepers.erase(t_sweepers.begin() + j);	// Delete sweeper
+				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+			}
+		}
 	}
 }

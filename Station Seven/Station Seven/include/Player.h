@@ -7,6 +7,7 @@
 #include "Worker.h"
 #include "Maths.h"
 #include "Nest.h"
+#include "Sweeper.h"
 class Player
 {
 public:
@@ -29,6 +30,7 @@ public:
 	void activateShield();
 	void activate360Shot();
 	void checkNest(Nest& nest);
+	void checkSweepers(std::vector<Sweeper*>& t_sweepers);
 private:
 	void handleInput();
 	void borderCheck();

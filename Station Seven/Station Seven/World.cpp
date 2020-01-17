@@ -105,14 +105,26 @@ void World::update( sf::Time t_deltaTime)
 	}
 	m_grids[m_playerGridLocation]->update();
 	playerTrackingPathfinding();
+
 	for (int i = 0; i < m_nests.size(); ++i)
 	{
-		m_nests.at(i)->update(t_deltaTime, m_player.getPos());
+		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers);
 		m_player.checkNest(*m_nests.at(i));
+		m_player.checkSweepers(m_nests.at(i)->m_sweepers);
 		if (m_nests.at(i)->getDead())
 		{
+			for (Sweeper* sweeper : m_nests.at(i)->m_sweepers)
+			{
+				m_sweepers.push_back(sweeper);
+			}
 			m_nests.erase(m_nests.begin() + i);
 		}
+	}
+	m_player.checkSweepers(m_sweepers);
+	for (Sweeper* sweeper : m_sweepers)
+	{
+		sweeper->update(t_deltaTime, m_player.getPos());
+		sweeper->inLineofSight(m_workers);
 	}
 	for (Powerup* powerup : m_powerups)
 	{
@@ -169,6 +181,10 @@ void World::render(sf::RenderWindow& t_window)
 	for (Worker* workers : m_workers)
 	{
 		workers->render(m_window);
+	}
+	for (Sweeper* sweeper : m_sweepers) 
+	{
+		sweeper->render(m_window);	
 	}
 }
 
