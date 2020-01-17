@@ -1,0 +1,176 @@
+\hypertarget{class_worker}{}\doxysection{Worker Class Reference}
+\label{class_worker}\index{Worker@{Worker}}
+
+
+{\ttfamily \#include $<$Worker.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_worker_a87d976da37c6cedd14e893226bd46590}{Worker}} (\mbox{\hyperlink{_worker_8h_a47c60be65507a920a09edfa2c3add36e}{W\+O\+R\+K\+E\+R\+S\+T\+A\+TE}} t\+\_\+state, sf\+::\+Vector2f t\+\_\+initial\+Pos, Resource\+Manager \&t\+\_\+resources)
+\begin{DoxyCompactList}\small\item\em Constructor for workers \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}{$\sim$\+Worker}} ()
+\begin{DoxyCompactList}\small\item\em destructor for workers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_aeb1b0122039add162bf0fabec5ecf419}{update}} (sf\+::\+Vector2f t\+\_\+player\+Pos, sf\+::\+Vector2f t\+\_\+player\+Vel)
+\begin{DoxyCompactList}\small\item\em update for the workers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_afd985b531acdd1c799d571cab95423e6}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em handle rendering of workers sprite \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a628ead73ba44e338add1d9ca1c4ef52a}{wander}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em wander function of the workers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_afc46abae5bdb9a2c89386745d112f7c1}{flee}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em fleeing function of the workers \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_worker_a47aa8d5eb21900530255e6a66b7801d9}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em get position function of the workers object \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_worker_ab4adcdb749d44a8be633466d2f20c9bd}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em get sprite of the workers object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_worker_a00add12299316bd66a2dd67c7bc1e25f}{m\+\_\+position}}
+\item 
+bool \mbox{\hyperlink{class_worker_a9b6d75242559e845ff242b1737922d10}{m\+\_\+is\+Collected}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_worker_a87d976da37c6cedd14e893226bd46590}\label{class_worker_a87d976da37c6cedd14e893226bd46590}} 
+\index{Worker@{Worker}!Worker@{Worker}}
+\index{Worker@{Worker}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{Worker()}{Worker()}}
+{\footnotesize\ttfamily Worker\+::\+Worker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_worker_8h_a47c60be65507a920a09edfa2c3add36e}{W\+O\+R\+K\+E\+R\+S\+T\+A\+TE}}}]{t\+\_\+state,  }\item[{sf\+::\+Vector2f}]{t\+\_\+initial\+Pos,  }\item[{Resource\+Manager \&}]{t\+\_\+resources }\end{DoxyParamCaption})}
+
+
+
+Constructor for workers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+state} & \\
+\hline
+{\em t\+\_\+initial\+Pos} & \\
+\hline
+{\em t\+\_\+resources} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}\label{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}} 
+\index{Worker@{Worker}!````~Worker@{$\sim$Worker}}
+\index{````~Worker@{$\sim$Worker}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{$\sim$Worker()}{~Worker()}}
+{\footnotesize\ttfamily Worker\+::$\sim$\+Worker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor for workers 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_worker_afc46abae5bdb9a2c89386745d112f7c1}\label{class_worker_afc46abae5bdb9a2c89386745d112f7c1}} 
+\index{Worker@{Worker}!flee@{flee}}
+\index{flee@{flee}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{flee()}{flee()}}
+{\footnotesize\ttfamily void Worker\+::flee (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+fleeing function of the workers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_a47aa8d5eb21900530255e6a66b7801d9}\label{class_worker_a47aa8d5eb21900530255e6a66b7801d9}} 
+\index{Worker@{Worker}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Worker\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get position function of the workers object 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_worker_ab4adcdb749d44a8be633466d2f20c9bd}\label{class_worker_ab4adcdb749d44a8be633466d2f20c9bd}} 
+\index{Worker@{Worker}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite Worker\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get sprite of the workers object 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_worker_afd985b531acdd1c799d571cab95423e6}\label{class_worker_afd985b531acdd1c799d571cab95423e6}} 
+\index{Worker@{Worker}!render@{render}}
+\index{render@{render}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Worker\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+handle rendering of workers sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_aeb1b0122039add162bf0fabec5ecf419}\label{class_worker_aeb1b0122039add162bf0fabec5ecf419}} 
+\index{Worker@{Worker}!update@{update}}
+\index{update@{update}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Worker\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos,  }\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Vel }\end{DoxyParamCaption})}
+
+
+
+update for the workers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+{\em t\+\_\+player\+Vel} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_a628ead73ba44e338add1d9ca1c4ef52a}\label{class_worker_a628ead73ba44e338add1d9ca1c4ef52a}} 
+\index{Worker@{Worker}!wander@{wander}}
+\index{wander@{wander}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{wander()}{wander()}}
+{\footnotesize\ttfamily void Worker\+::wander (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+wander function of the workers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_worker_a9b6d75242559e845ff242b1737922d10}\label{class_worker_a9b6d75242559e845ff242b1737922d10}} 
+\index{Worker@{Worker}!m\_isCollected@{m\_isCollected}}
+\index{m\_isCollected@{m\_isCollected}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{m\_isCollected}{m\_isCollected}}
+{\footnotesize\ttfamily bool Worker\+::m\+\_\+is\+Collected}
+
+\mbox{\Hypertarget{class_worker_a00add12299316bd66a2dd67c7bc1e25f}\label{class_worker_a00add12299316bd66a2dd67c7bc1e25f}} 
+\index{Worker@{Worker}!m\_position@{m\_position}}
+\index{m\_position@{m\_position}!Worker@{Worker}}
+\doxysubsubsection{\texorpdfstring{m\_position}{m\_position}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Worker\+::m\+\_\+position}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_worker_8h}{Worker.\+h}}\item 
+\mbox{\hyperlink{_worker_8cpp}{Worker.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,140 @@
+\hypertarget{class_missile}{}\doxysection{Missile Class Reference}
+\label{class_missile}\index{Missile@{Missile}}
+
+
+{\ttfamily \#include $<$Missile.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_missile_ae237bf6e74409e9c923a6cd18f18358d}{Missile}} (sf\+::\+Vector2f t\+\_\+pos, Resource\+Manager \&t\+\_\+resources)
+\begin{DoxyCompactList}\small\item\em missile constructor setting up physical attributes of missile object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_missile_ad42379e48a46ec3556056f98ce8bd912}{$\sim$\+Missile}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_missile}{Missile}} destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_a3d5483c4dcd2bf71e6a8a1188652eb39}{update}} (sf\+::\+Time t\+\_\+delta\+Time, sf\+::\+Vector2f t\+\_\+player\+Pos, int \&t\+\_\+player\+Health)
+\begin{DoxyCompactList}\small\item\em updating the physics of missile, Seek and die after 5 seconds and check collision between player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_ad73d7919b54b81e5806e538e7d2b284b}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em render the missile \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpathing}{pathing}} \mbox{\hyperlink{class_missile_a21a5082aec1f7b1f64715d1aff43e86e}{seek}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em seek function \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_missile_a2cf972d60a460322273bd0cfbe190af8}{is\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em check if dead \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_missile_ad07ea218b8c2b6e7f52c78095a978340}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em return missile position \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_missile_ae237bf6e74409e9c923a6cd18f18358d}\label{class_missile_ae237bf6e74409e9c923a6cd18f18358d}} 
+\index{Missile@{Missile}!Missile@{Missile}}
+\index{Missile@{Missile}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{Missile()}{Missile()}}
+{\footnotesize\ttfamily Missile\+::\+Missile (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+pos,  }\item[{Resource\+Manager \&}]{t\+\_\+resources }\end{DoxyParamCaption})}
+
+
+
+missile constructor setting up physical attributes of missile object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+pos} & \\
+\hline
+{\em t\+\_\+resources} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_ad42379e48a46ec3556056f98ce8bd912}\label{class_missile_ad42379e48a46ec3556056f98ce8bd912}} 
+\index{Missile@{Missile}!````~Missile@{$\sim$Missile}}
+\index{````~Missile@{$\sim$Missile}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{$\sim$Missile()}{~Missile()}}
+{\footnotesize\ttfamily Missile\+::$\sim$\+Missile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_missile}{Missile}} destructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_missile_ad07ea218b8c2b6e7f52c78095a978340}\label{class_missile_ad07ea218b8c2b6e7f52c78095a978340}} 
+\index{Missile@{Missile}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Missile\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return missile position 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a2cf972d60a460322273bd0cfbe190af8}\label{class_missile_a2cf972d60a460322273bd0cfbe190af8}} 
+\index{Missile@{Missile}!isDead@{isDead}}
+\index{isDead@{isDead}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily bool Missile\+::is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if dead 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_ad73d7919b54b81e5806e538e7d2b284b}\label{class_missile_ad73d7919b54b81e5806e538e7d2b284b}} 
+\index{Missile@{Missile}!render@{render}}
+\index{render@{render}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Missile\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+render the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_a21a5082aec1f7b1f64715d1aff43e86e}\label{class_missile_a21a5082aec1f7b1f64715d1aff43e86e}} 
+\index{Missile@{Missile}!seek@{seek}}
+\index{seek@{seek}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpathing}{pathing}} Missile\+::seek (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+seek function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a3d5483c4dcd2bf71e6a8a1188652eb39}\label{class_missile_a3d5483c4dcd2bf71e6a8a1188652eb39}} 
+\index{Missile@{Missile}!update@{update}}
+\index{update@{update}!Missile@{Missile}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Missile\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time,  }\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos,  }\item[{int \&}]{t\+\_\+player\+Health }\end{DoxyParamCaption})}
+
+
+
+updating the physics of missile, Seek and die after 5 seconds and check collision between player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+delta\+Time} & \\
+\hline
+{\em t\+\_\+player\+Pos} & \\
+\hline
+{\em t\+\_\+playerealth} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_missile_8h}{Missile.\+h}}\item 
+\mbox{\hyperlink{_missile_8cpp}{Missile.\+cpp}}\end{DoxyCompactItemize}

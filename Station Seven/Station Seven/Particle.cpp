@@ -12,9 +12,9 @@ Particle::Particle(sf::Vector2f pos, int index) :
 	m_circle.setPosition(m_position);
 
 	// Make red and yellow random to make circle more unique
-	m_red = rand() % 55 + 200;
-	m_yellow = rand() % 200;
-	m_circle.setFillColor(sf::Color(m_red, m_yellow, 0, m_alpha));
+	m_r = rand() % 55 + 200;
+	m_g = rand() % 200;
+	m_circle.setFillColor(sf::Color(m_r, m_g, 0, m_alpha));
 
 	m_lifetime = rand() % 75;	// Make each particle have a random lifetime
 
@@ -31,7 +31,7 @@ void Particle::update() {
 	m_lifetime--;	// Decrements lifetime
 
 	// Sets alpha based on lifetime so particle will slowly fade out
-	m_circle.setFillColor(sf::Color(m_red, m_yellow, 0, m_lifetime));
+	m_circle.setFillColor(sf::Color(m_r, m_g, 0, m_lifetime));
 
 	// Update position of particle
 	m_position.x += m_velocity.x;

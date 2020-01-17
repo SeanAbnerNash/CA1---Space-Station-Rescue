@@ -56,6 +56,17 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(1250, 2000), POWERUPTYPE::SHOT360, m_resourceMng));
 
+	m_powerups.push_back(new Powerup(sf::Vector2f(3700, 2300), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(6000, 1000), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(5700, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(300, 1000), POWERUPTYPE::SHOT360, m_resourceMng));
+
+	m_powerups.push_back(new Powerup(sf::Vector2f(300, 6100), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1600, 6000), POWERUPTYPE::SHOT360, m_resourceMng));
+
+	m_powerups.push_back(new Powerup(sf::Vector2f(4000, 6200), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(4500, 6800), POWERUPTYPE::SHIELD, m_resourceMng));
+
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 3), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 37), 0 + ((50 + 1) * 1) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 3), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 37), 0 + ((50 + 1) * 1) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 36), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 58), -4 + ((50 + 1) * 12) }));
@@ -96,6 +107,11 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	{
 		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
 	}
+	for (int i = 0; i < 10; i++)
+
+	{
+		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(2800, 500), m_resourceMng));
+	}
 
 
 	m_nests.clear();
@@ -103,6 +119,7 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_nests.push_back(new Nest(sf::Vector2f(1000, 4000), m_resourceMng));
 	m_nests.push_back(new Nest(sf::Vector2f(3000, 1000), m_resourceMng));
 	m_nests.push_back(new Nest(sf::Vector2f(4000, 2000), m_resourceMng));
+	m_nests.push_back(new Nest(sf::Vector2f(1100, 7100), m_resourceMng));
 
 	setUpGrids();
 

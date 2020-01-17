@@ -1,0 +1,200 @@
+\hypertarget{class_tile_manager}{}\doxysection{Tile\+Manager Class Reference}
+\label{class_tile_manager}\index{TileManager@{TileManager}}
+
+
+{\ttfamily \#include $<$Tile\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile_manager_ac6f5d9eb4db57f9ad597223658574394}{Tile\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_tile_manager_aa1bf592b26c102ada6af58cc1f7957cf}{$\sim$\+Tile\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_tile_manager_ab52714caa67219c01dd97441fac7be01}{Tile\+Manager}} (sf\+::\+Vector2f t\+\_\+start\+Pos)
+\item 
+\mbox{\hyperlink{class_tile_manager_a0c14a25f33a4ff9d4f439575569abce3}{Tile\+Manager}} (sf\+::\+Font \&t\+\_\+\+Arial\+Blackfont)
+\item 
+void \mbox{\hyperlink{class_tile_manager_a99ee203e495fd6431ac4e2496e27f68f}{display}} (sf\+::\+Render\+Window \&m\+\_\+renderer)
+\item 
+void \mbox{\hyperlink{class_tile_manager_aa9d747dfb18f05b82ddaa7836049f5ec}{mouse\+Click}} (sf\+::\+Vector2i t\+\_\+click\+Pos, int m\+\_\+mode)
+\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_tile_manager_a4a94bb4c0e57473a01d65457c25b9238}{get\+Tile}} (sf\+::\+Vector2f t\+\_\+target\+ID)
+\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_tile_manager_afca978ce234fb70d4ff0c726f3bde3a6}{get\+Tile\+At}} (sf\+::\+Vector2i t\+\_\+target\+Location)
+\item 
+void \mbox{\hyperlink{class_tile_manager_a8111e5e90461be455fc47542e21b04df}{flip\+Costs}} ()
+\item 
+void \mbox{\hyperlink{class_tile_manager_a736a4324c0bcd8dec4fa9937a38337e3}{flip\+Vector}} ()
+\item 
+void \mbox{\hyperlink{class_tile_manager_ab8695b1cc8e9eea8d53b7f10524f9efd}{flip\+Heat\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_tile_manager_a23db26194e21419772ea8876be37b896}{reset\+Old\+Tile}} (\mbox{\hyperlink{class_tile}{Tile}} $\ast$t\+\_\+old\+Tile, int t\+\_\+new\+Mode)
+\item 
+void \mbox{\hyperlink{class_tile_manager_ab11709413bcbfef3840db286cca51c46}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_tile_manager_a0b94d3f4f3ae0fab869af0f757ff543b}{update}} ()
+\item 
+void \mbox{\hyperlink{class_tile_manager_ae3b6e3f39606502c58815d67722d9068}{show\+Path}} ()
+\item 
+int \mbox{\hyperlink{class_tile_manager_af1d38087900aa0acae744042959c6025}{get\+Highest\+Cost}} ()
+\item 
+int \mbox{\hyperlink{class_tile_manager_a93cb9ee34616af19c8d1c6d42fc21de0}{get\+Path\+Cost}} ()
+\item 
+bool \mbox{\hyperlink{class_tile_manager_ae898357e4a5f64c0e8cafbd4f988cca3}{within\+Bounds}} (sf\+::\+Vector2i t\+\_\+point)
+\item 
+void \mbox{\hyperlink{class_tile_manager_a18e83646fcc7b8e0cc420613d7e4ec81}{clear\+Path}} ()
+\item 
+float \mbox{\hyperlink{class_tile_manager_a3409a7bfe3c657e22cf607a7e8e01c1e}{length}} (sf\+::\+Vector2f t\+\_\+left, sf\+::\+Vector2f t\+\_\+right)
+\item 
+void \mbox{\hyperlink{class_tile_manager_aa6f0d99ea71f68a835c60a1fbf3a46a3}{set\+Goal}} (sf\+::\+Vector2i t\+\_\+goal)
+\item 
+void \mbox{\hyperlink{class_tile_manager_ae235bdaaa928d95d3023a3c57c93be05}{set\+Mode}} (sf\+::\+Vector2f t\+\_\+id, int t\+\_\+mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@\+Author Sean Abner Nash @\+Login C00217019 Flow Field Pathfinding AI Time Taken 16 Hours 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tile_manager_ac6f5d9eb4db57f9ad597223658574394}\label{class_tile_manager_ac6f5d9eb4db57f9ad597223658574394}} 
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{TileManager()}{TileManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Tile\+Manager\+::\+Tile\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+@\+Author Sean Abner Nash @\+Login C00217019 Flow Field Pathfinding AI Time Taken 16 Hours \mbox{\Hypertarget{class_tile_manager_aa1bf592b26c102ada6af58cc1f7957cf}\label{class_tile_manager_aa1bf592b26c102ada6af58cc1f7957cf}} 
+\index{TileManager@{TileManager}!````~TileManager@{$\sim$TileManager}}
+\index{````~TileManager@{$\sim$TileManager}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$TileManager()}{~TileManager()}}
+{\footnotesize\ttfamily Tile\+Manager\+::$\sim$\+Tile\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ab52714caa67219c01dd97441fac7be01}\label{class_tile_manager_ab52714caa67219c01dd97441fac7be01}} 
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{TileManager()}{TileManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Tile\+Manager\+::\+Tile\+Manager (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+start\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a0c14a25f33a4ff9d4f439575569abce3}\label{class_tile_manager_a0c14a25f33a4ff9d4f439575569abce3}} 
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\index{TileManager@{TileManager}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{TileManager()}{TileManager()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Tile\+Manager\+::\+Tile\+Manager (\begin{DoxyParamCaption}\item[{sf\+::\+Font \&}]{t\+\_\+\+Arial\+Blackfont }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tile_manager_a18e83646fcc7b8e0cc420613d7e4ec81}\label{class_tile_manager_a18e83646fcc7b8e0cc420613d7e4ec81}} 
+\index{TileManager@{TileManager}!clearPath@{clearPath}}
+\index{clearPath@{clearPath}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{clearPath()}{clearPath()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::clear\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a99ee203e495fd6431ac4e2496e27f68f}\label{class_tile_manager_a99ee203e495fd6431ac4e2496e27f68f}} 
+\index{TileManager@{TileManager}!display@{display}}
+\index{display@{display}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{m\+\_\+renderer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a8111e5e90461be455fc47542e21b04df}\label{class_tile_manager_a8111e5e90461be455fc47542e21b04df}} 
+\index{TileManager@{TileManager}!flipCosts@{flipCosts}}
+\index{flipCosts@{flipCosts}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{flipCosts()}{flipCosts()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::flip\+Costs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ab8695b1cc8e9eea8d53b7f10524f9efd}\label{class_tile_manager_ab8695b1cc8e9eea8d53b7f10524f9efd}} 
+\index{TileManager@{TileManager}!flipHeatMap@{flipHeatMap}}
+\index{flipHeatMap@{flipHeatMap}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{flipHeatMap()}{flipHeatMap()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::flip\+Heat\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a736a4324c0bcd8dec4fa9937a38337e3}\label{class_tile_manager_a736a4324c0bcd8dec4fa9937a38337e3}} 
+\index{TileManager@{TileManager}!flipVector@{flipVector}}
+\index{flipVector@{flipVector}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{flipVector()}{flipVector()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::flip\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_af1d38087900aa0acae744042959c6025}\label{class_tile_manager_af1d38087900aa0acae744042959c6025}} 
+\index{TileManager@{TileManager}!getHighestCost@{getHighestCost}}
+\index{getHighestCost@{getHighestCost}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{getHighestCost()}{getHighestCost()}}
+{\footnotesize\ttfamily int Tile\+Manager\+::get\+Highest\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a93cb9ee34616af19c8d1c6d42fc21de0}\label{class_tile_manager_a93cb9ee34616af19c8d1c6d42fc21de0}} 
+\index{TileManager@{TileManager}!getPathCost@{getPathCost}}
+\index{getPathCost@{getPathCost}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{getPathCost()}{getPathCost()}}
+{\footnotesize\ttfamily int Tile\+Manager\+::get\+Path\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a4a94bb4c0e57473a01d65457c25b9238}\label{class_tile_manager_a4a94bb4c0e57473a01d65457c25b9238}} 
+\index{TileManager@{TileManager}!getTile@{getTile}}
+\index{getTile@{getTile}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{getTile()}{getTile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}} $\ast$ Tile\+Manager\+::get\+Tile (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+target\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_afca978ce234fb70d4ff0c726f3bde3a6}\label{class_tile_manager_afca978ce234fb70d4ff0c726f3bde3a6}} 
+\index{TileManager@{TileManager}!getTileAt@{getTileAt}}
+\index{getTileAt@{getTileAt}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{getTileAt()}{getTileAt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}} $\ast$ Tile\+Manager\+::get\+Tile\+At (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{t\+\_\+target\+Location }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a3409a7bfe3c657e22cf607a7e8e01c1e}\label{class_tile_manager_a3409a7bfe3c657e22cf607a7e8e01c1e}} 
+\index{TileManager@{TileManager}!length@{length}}
+\index{length@{length}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily float Tile\+Manager\+::length (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+left,  }\item[{sf\+::\+Vector2f}]{t\+\_\+right }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_aa9d747dfb18f05b82ddaa7836049f5ec}\label{class_tile_manager_aa9d747dfb18f05b82ddaa7836049f5ec}} 
+\index{TileManager@{TileManager}!mouseClick@{mouseClick}}
+\index{mouseClick@{mouseClick}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{mouseClick()}{mouseClick()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::mouse\+Click (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{t\+\_\+click\+Pos,  }\item[{int}]{m\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ab11709413bcbfef3840db286cca51c46}\label{class_tile_manager_ab11709413bcbfef3840db286cca51c46}} 
+\index{TileManager@{TileManager}!reset@{reset}}
+\index{reset@{reset}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a23db26194e21419772ea8876be37b896}\label{class_tile_manager_a23db26194e21419772ea8876be37b896}} 
+\index{TileManager@{TileManager}!resetOldTile@{resetOldTile}}
+\index{resetOldTile@{resetOldTile}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{resetOldTile()}{resetOldTile()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::reset\+Old\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tile}{Tile}} $\ast$}]{t\+\_\+old\+Tile,  }\item[{int}]{t\+\_\+new\+Mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_aa6f0d99ea71f68a835c60a1fbf3a46a3}\label{class_tile_manager_aa6f0d99ea71f68a835c60a1fbf3a46a3}} 
+\index{TileManager@{TileManager}!setGoal@{setGoal}}
+\index{setGoal@{setGoal}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{setGoal()}{setGoal()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::set\+Goal (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{t\+\_\+goal }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ae235bdaaa928d95d3023a3c57c93be05}\label{class_tile_manager_ae235bdaaa928d95d3023a3c57c93be05}} 
+\index{TileManager@{TileManager}!setMode@{setMode}}
+\index{setMode@{setMode}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::set\+Mode (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+id,  }\item[{int}]{t\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ae3b6e3f39606502c58815d67722d9068}\label{class_tile_manager_ae3b6e3f39606502c58815d67722d9068}} 
+\index{TileManager@{TileManager}!showPath@{showPath}}
+\index{showPath@{showPath}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{showPath()}{showPath()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::show\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_a0b94d3f4f3ae0fab869af0f757ff543b}\label{class_tile_manager_a0b94d3f4f3ae0fab869af0f757ff543b}} 
+\index{TileManager@{TileManager}!update@{update}}
+\index{update@{update}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Tile\+Manager\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_manager_ae898357e4a5f64c0e8cafbd4f988cca3}\label{class_tile_manager_ae898357e4a5f64c0e8cafbd4f988cca3}} 
+\index{TileManager@{TileManager}!withinBounds@{withinBounds}}
+\index{withinBounds@{withinBounds}!TileManager@{TileManager}}
+\doxysubsubsection{\texorpdfstring{withinBounds()}{withinBounds()}}
+{\footnotesize\ttfamily bool Tile\+Manager\+::within\+Bounds (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{t\+\_\+point }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_tile_manager_8h}{Tile\+Manager.\+h}}\item 
+\mbox{\hyperlink{_tile_manager_8cpp}{Tile\+Manager.\+cpp}}\end{DoxyCompactItemize}

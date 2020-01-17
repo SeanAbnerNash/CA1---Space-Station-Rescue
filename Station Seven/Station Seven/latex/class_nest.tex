@@ -1,0 +1,180 @@
+\hypertarget{class_nest}{}\doxysection{Nest Class Reference}
+\label{class_nest}\index{Nest@{Nest}}
+
+
+{\ttfamily \#include $<$Nest.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_nest_acaaf4212f383b0ea230e17e41e4d009a}{Nest}} (sf\+::\+Vector2f t\+\_\+pos, Resource\+Manager \&t\+\_\+resources)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_nest}{Nest}} Contructor setting up physical attributes of player object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}{$\sim$\+Nest}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_nest}{Nest}} destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_ae2849de6799493c1b024a10f0ecd45da}{update}} (sf\+::\+Time t\+\_\+delta\+Time, sf\+::\+Vector2f t\+\_\+player\+Pos, std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$ t\+\_\+workers, int \&t\+\_\+player\+Health, std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&t\+\_\+ps)
+\begin{DoxyCompactList}\small\item\em updating the nest functionality missile update \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_aedc43087dd6ce1bc205710e9b1be93f3}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em drawing of the nest and missiles \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a51bc225d688ec6bbdc398a2cb22c14c0}{take\+Damage}} (std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&t\+\_\+ps)
+\begin{DoxyCompactList}\small\item\em function that when hit by player bullet it takes damage \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a184632b18346f823790715e77d13c63e}{create\+Sweeper}} ()
+\item 
+void \mbox{\hyperlink{class_nest_a94f96927f4a6afdf31cfdc9eee0c6206}{create\+Missile}} ()
+\begin{DoxyCompactList}\small\item\em create missile that shoots from nests \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_nest_a3904c58d1826997b98bdfd8b357ba6fa}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em getposition of nest \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_nest_a13a08db354209838fa720b440c14e519}{get\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em check if dead \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_nest_a242f8fdc768bec452ad8c594020c7df6}{m\+\_\+position}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_missile}{Missile}} $\ast$ $>$ \mbox{\hyperlink{class_nest_a3a80129f657e93bb0a8ef6348aa0b658}{m\+\_\+missiles}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_sweeper}{Sweeper}} $\ast$ $>$ \mbox{\hyperlink{class_nest_a4edefa34980d622783eaa52642546ba2}{m\+\_\+sweepers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_nest_acaaf4212f383b0ea230e17e41e4d009a}\label{class_nest_acaaf4212f383b0ea230e17e41e4d009a}} 
+\index{Nest@{Nest}!Nest@{Nest}}
+\index{Nest@{Nest}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{Nest()}{Nest()}}
+{\footnotesize\ttfamily Nest\+::\+Nest (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+pos,  }\item[{Resource\+Manager \&}]{t\+\_\+resources }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_nest}{Nest}} Contructor setting up physical attributes of player object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+pos} & \\
+\hline
+{\em t\+\_\+resources} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}\label{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}} 
+\index{Nest@{Nest}!````~Nest@{$\sim$Nest}}
+\index{````~Nest@{$\sim$Nest}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{$\sim$Nest()}{~Nest()}}
+{\footnotesize\ttfamily Nest\+::$\sim$\+Nest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_nest}{Nest}} destructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_nest_a94f96927f4a6afdf31cfdc9eee0c6206}\label{class_nest_a94f96927f4a6afdf31cfdc9eee0c6206}} 
+\index{Nest@{Nest}!createMissile@{createMissile}}
+\index{createMissile@{createMissile}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{createMissile()}{createMissile()}}
+{\footnotesize\ttfamily void Nest\+::create\+Missile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+create missile that shoots from nests 
+
+\mbox{\Hypertarget{class_nest_a184632b18346f823790715e77d13c63e}\label{class_nest_a184632b18346f823790715e77d13c63e}} 
+\index{Nest@{Nest}!createSweeper@{createSweeper}}
+\index{createSweeper@{createSweeper}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{createSweeper()}{createSweeper()}}
+{\footnotesize\ttfamily void Nest\+::create\+Sweeper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_nest_a13a08db354209838fa720b440c14e519}\label{class_nest_a13a08db354209838fa720b440c14e519}} 
+\index{Nest@{Nest}!getDead@{getDead}}
+\index{getDead@{getDead}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{getDead()}{getDead()}}
+{\footnotesize\ttfamily bool Nest\+::get\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if dead 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_a3904c58d1826997b98bdfd8b357ba6fa}\label{class_nest_a3904c58d1826997b98bdfd8b357ba6fa}} 
+\index{Nest@{Nest}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Nest\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getposition of nest 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_aedc43087dd6ce1bc205710e9b1be93f3}\label{class_nest_aedc43087dd6ce1bc205710e9b1be93f3}} 
+\index{Nest@{Nest}!render@{render}}
+\index{render@{render}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Nest\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+drawing of the nest and missiles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_a51bc225d688ec6bbdc398a2cb22c14c0}\label{class_nest_a51bc225d688ec6bbdc398a2cb22c14c0}} 
+\index{Nest@{Nest}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Nest\+::take\+Damage (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&}]{t\+\_\+ps }\end{DoxyParamCaption})}
+
+
+
+function that when hit by player bullet it takes damage 
+
+\mbox{\Hypertarget{class_nest_ae2849de6799493c1b024a10f0ecd45da}\label{class_nest_ae2849de6799493c1b024a10f0ecd45da}} 
+\index{Nest@{Nest}!update@{update}}
+\index{update@{update}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Nest\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time,  }\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$}]{t\+\_\+workers,  }\item[{int \&}]{t\+\_\+player\+Health,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&}]{t\+\_\+ps }\end{DoxyParamCaption})}
+
+
+
+updating the nest functionality missile update 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+delta\+Time} & \\
+\hline
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_nest_a3a80129f657e93bb0a8ef6348aa0b658}\label{class_nest_a3a80129f657e93bb0a8ef6348aa0b658}} 
+\index{Nest@{Nest}!m\_missiles@{m\_missiles}}
+\index{m\_missiles@{m\_missiles}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{m\_missiles}{m\_missiles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_missile}{Missile}}$\ast$$>$ Nest\+::m\+\_\+missiles}
+
+\mbox{\Hypertarget{class_nest_a242f8fdc768bec452ad8c594020c7df6}\label{class_nest_a242f8fdc768bec452ad8c594020c7df6}} 
+\index{Nest@{Nest}!m\_position@{m\_position}}
+\index{m\_position@{m\_position}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{m\_position}{m\_position}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Nest\+::m\+\_\+position}
+
+\mbox{\Hypertarget{class_nest_a4edefa34980d622783eaa52642546ba2}\label{class_nest_a4edefa34980d622783eaa52642546ba2}} 
+\index{Nest@{Nest}!m\_sweepers@{m\_sweepers}}
+\index{m\_sweepers@{m\_sweepers}!Nest@{Nest}}
+\doxysubsubsection{\texorpdfstring{m\_sweepers}{m\_sweepers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_sweeper}{Sweeper}}$\ast$$>$ Nest\+::m\+\_\+sweepers}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_nest_8h}{Nest.\+h}}\item 
+\mbox{\hyperlink{_nest_8cpp}{Nest.\+cpp}}\end{DoxyCompactItemize}

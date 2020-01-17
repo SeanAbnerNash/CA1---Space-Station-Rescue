@@ -1,0 +1,194 @@
+\hypertarget{class_world}{}\doxysection{World Class Reference}
+\label{class_world}\index{World@{World}}
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_ab4fa96040fb1b31375dfcbbe9e66fb30}{World}} (Resource\+Manager \&t\+\_\+resources, sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_world}{World}} constructor here we set up the map and entities \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_a8c73fba541a5817fff65147ba47cd827}{$\sim$\+World}} ()
+\begin{DoxyCompactList}\small\item\em world destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_acf89d54ca091c9f7acae08cff3b07003}{update}} (sf\+::\+Time t\+\_\+delta\+Time)
+\begin{DoxyCompactList}\small\item\em here we do updates of player the world pathfinding , powerups collision detection \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a2134b3e5903a0a250d094d2ba1e1ebb3}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em here we render the world entities player powerups \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a460a99152c73ef968b6280962d5cbba0}{mouse\+Click}} (sf\+::\+Vector2i t\+\_\+click\+Pos, int m\+\_\+mode)
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_world_a086f38ec7f89597b077e224033e20865}{vec\+F\+To\+VecI}} (sf\+::\+Vector2f t\+\_\+vec)
+\item 
+void \mbox{\hyperlink{class_world_a53c297f571a81e2582a0cc520fb64fd5}{set\+Up\+Grid1}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a892a35b7ea280751c1688aa9b93e756f}{set\+Up\+Grid2}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_aaf239c0225ba4f7b15db5615d55f0c76}{set\+Up\+Grid3}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a2a2981edb9006203ed86e40ff615e24b}{set\+Up\+Grid4}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a5d31f1530d7afcf0d4fa1a2760443710}{set\+Up\+Grid5}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a06dad690841c1e857016c8221bd4d106}{set\+Up\+Grid6}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a509e4d9492467b052b86a959f81e3700}{set\+Up\+Grid7}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_aa57914e6298c004d3608557039ee79c4}{set\+Up\+Grid8}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a00040ab7dbd1fc0cccd3611fe41c2c2b}{set\+Up\+Grid9}} (int u, int i)
+\item 
+void \mbox{\hyperlink{class_world_a0b07e113a95c2e09f6bffee82ebba5dd}{set\+Up\+Grids}} ()
+\item 
+void \mbox{\hyperlink{class_world_a3a83785449ca6c4ffa707a7ba045c257}{player\+Tracking\+Pathfinding}} ()
+\begin{DoxyCompactList}\small\item\em track the player pathfinding \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_world_ab4fa96040fb1b31375dfcbbe9e66fb30}\label{class_world_ab4fa96040fb1b31375dfcbbe9e66fb30}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}\item[{Resource\+Manager \&}]{t\+\_\+resources,  }\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_world}{World}} constructor here we set up the map and entities 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+resources} & \\
+\hline
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_a8c73fba541a5817fff65147ba47cd827}\label{class_world_a8c73fba541a5817fff65147ba47cd827}} 
+\index{World@{World}!````~World@{$\sim$World}}
+\index{````~World@{$\sim$World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{$\sim$World()}{~World()}}
+{\footnotesize\ttfamily World\+::$\sim$\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+world destructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_world_a460a99152c73ef968b6280962d5cbba0}\label{class_world_a460a99152c73ef968b6280962d5cbba0}} 
+\index{World@{World}!mouseClick@{mouseClick}}
+\index{mouseClick@{mouseClick}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mouseClick()}{mouseClick()}}
+{\footnotesize\ttfamily void World\+::mouse\+Click (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{t\+\_\+click\+Pos,  }\item[{int}]{m\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a3a83785449ca6c4ffa707a7ba045c257}\label{class_world_a3a83785449ca6c4ffa707a7ba045c257}} 
+\index{World@{World}!playerTrackingPathfinding@{playerTrackingPathfinding}}
+\index{playerTrackingPathfinding@{playerTrackingPathfinding}!World@{World}}
+\doxysubsubsection{\texorpdfstring{playerTrackingPathfinding()}{playerTrackingPathfinding()}}
+{\footnotesize\ttfamily void World\+::player\+Tracking\+Pathfinding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+track the player pathfinding 
+
+\mbox{\Hypertarget{class_world_a2134b3e5903a0a250d094d2ba1e1ebb3}\label{class_world_a2134b3e5903a0a250d094d2ba1e1ebb3}} 
+\index{World@{World}!render@{render}}
+\index{render@{render}!World@{World}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void World\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+here we render the world entities player powerups 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_a53c297f571a81e2582a0cc520fb64fd5}\label{class_world_a53c297f571a81e2582a0cc520fb64fd5}} 
+\index{World@{World}!setUpGrid1@{setUpGrid1}}
+\index{setUpGrid1@{setUpGrid1}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid1()}{setUpGrid1()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid1 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a892a35b7ea280751c1688aa9b93e756f}\label{class_world_a892a35b7ea280751c1688aa9b93e756f}} 
+\index{World@{World}!setUpGrid2@{setUpGrid2}}
+\index{setUpGrid2@{setUpGrid2}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid2()}{setUpGrid2()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid2 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_aaf239c0225ba4f7b15db5615d55f0c76}\label{class_world_aaf239c0225ba4f7b15db5615d55f0c76}} 
+\index{World@{World}!setUpGrid3@{setUpGrid3}}
+\index{setUpGrid3@{setUpGrid3}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid3()}{setUpGrid3()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid3 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a2a2981edb9006203ed86e40ff615e24b}\label{class_world_a2a2981edb9006203ed86e40ff615e24b}} 
+\index{World@{World}!setUpGrid4@{setUpGrid4}}
+\index{setUpGrid4@{setUpGrid4}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid4()}{setUpGrid4()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid4 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a5d31f1530d7afcf0d4fa1a2760443710}\label{class_world_a5d31f1530d7afcf0d4fa1a2760443710}} 
+\index{World@{World}!setUpGrid5@{setUpGrid5}}
+\index{setUpGrid5@{setUpGrid5}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid5()}{setUpGrid5()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid5 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a06dad690841c1e857016c8221bd4d106}\label{class_world_a06dad690841c1e857016c8221bd4d106}} 
+\index{World@{World}!setUpGrid6@{setUpGrid6}}
+\index{setUpGrid6@{setUpGrid6}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid6()}{setUpGrid6()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid6 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a509e4d9492467b052b86a959f81e3700}\label{class_world_a509e4d9492467b052b86a959f81e3700}} 
+\index{World@{World}!setUpGrid7@{setUpGrid7}}
+\index{setUpGrid7@{setUpGrid7}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid7()}{setUpGrid7()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid7 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_aa57914e6298c004d3608557039ee79c4}\label{class_world_aa57914e6298c004d3608557039ee79c4}} 
+\index{World@{World}!setUpGrid8@{setUpGrid8}}
+\index{setUpGrid8@{setUpGrid8}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid8()}{setUpGrid8()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid8 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a00040ab7dbd1fc0cccd3611fe41c2c2b}\label{class_world_a00040ab7dbd1fc0cccd3611fe41c2c2b}} 
+\index{World@{World}!setUpGrid9@{setUpGrid9}}
+\index{setUpGrid9@{setUpGrid9}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrid9()}{setUpGrid9()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grid9 (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_a0b07e113a95c2e09f6bffee82ebba5dd}\label{class_world_a0b07e113a95c2e09f6bffee82ebba5dd}} 
+\index{World@{World}!setUpGrids@{setUpGrids}}
+\index{setUpGrids@{setUpGrids}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setUpGrids()}{setUpGrids()}}
+{\footnotesize\ttfamily void World\+::set\+Up\+Grids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_world_acf89d54ca091c9f7acae08cff3b07003}\label{class_world_acf89d54ca091c9f7acae08cff3b07003}} 
+\index{World@{World}!update@{update}}
+\index{update@{update}!World@{World}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void World\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time }\end{DoxyParamCaption})}
+
+
+
+here we do updates of player the world pathfinding , powerups collision detection 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+delta\+Time} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_a086f38ec7f89597b077e224033e20865}\label{class_world_a086f38ec7f89597b077e224033e20865}} 
+\index{World@{World}!vecFToVecI@{vecFToVecI}}
+\index{vecFToVecI@{vecFToVecI}!World@{World}}
+\doxysubsubsection{\texorpdfstring{vecFToVecI()}{vecFToVecI()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i World\+::vec\+F\+To\+VecI (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_world_8h}{World.\+h}}\item 
+\mbox{\hyperlink{_world_8cpp}{World.\+cpp}}\end{DoxyCompactItemize}

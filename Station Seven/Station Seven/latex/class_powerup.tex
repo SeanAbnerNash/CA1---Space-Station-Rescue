@@ -1,0 +1,150 @@
+\hypertarget{class_powerup}{}\doxysection{Powerup Class Reference}
+\label{class_powerup}\index{Powerup@{Powerup}}
+
+
+{\ttfamily \#include $<$Powerup.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_powerup_ae75aebb206ea5a6714a69acac372916c}{Powerup}} (sf\+::\+Vector2f t\+\_\+pos, \mbox{\hyperlink{_powerup_8h_afeb25d08ced8579e13dd0d747398c625}{P\+O\+W\+E\+R\+U\+P\+T\+Y\+PE}} t\+\_\+type, Resource\+Manager \&t\+\_\+resources)
+\begin{DoxyCompactList}\small\item\em powerup constuctor setting up physical attributes of powerups \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_powerup_a2e1c97859d671527885e6f4eb200ca3f}{$\sim$\+Powerup}} ()
+\begin{DoxyCompactList}\small\item\em powerup destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_powerup_a79b1f1f38782c817d3bb12e3e89f8bc0}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em if alive draw powerups \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_powerup_a5204feafbbb7cc35e857d0af437d270b}{update}} ()
+\begin{DoxyCompactList}\small\item\em simple update of powerups \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_powerup_ac72df579431ea63fd97ead9d70b051df}{set\+Alive}} (bool t\+\_\+alive)
+\begin{DoxyCompactList}\small\item\em make powerup alive \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_powerup_a43e797bb2baedf42e391a5c81dbcd27f}{get\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em check if alive \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_powerup_8h_afeb25d08ced8579e13dd0d747398c625}{P\+O\+W\+E\+R\+U\+P\+T\+Y\+PE}} \mbox{\hyperlink{class_powerup_ab5bb3527fc41dfaeb0b9374192c66cc1}{get\+Powerup\+Type}} ()
+\begin{DoxyCompactList}\small\item\em return the type of powerup \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_powerup_a7a90178cdfefac13a3fd83d5c8f5aae3}{collision\+Detection}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em collision detection between player and powerup \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_powerup_ae75aebb206ea5a6714a69acac372916c}\label{class_powerup_ae75aebb206ea5a6714a69acac372916c}} 
+\index{Powerup@{Powerup}!Powerup@{Powerup}}
+\index{Powerup@{Powerup}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{Powerup()}{Powerup()}}
+{\footnotesize\ttfamily Powerup\+::\+Powerup (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+pos,  }\item[{\mbox{\hyperlink{_powerup_8h_afeb25d08ced8579e13dd0d747398c625}{P\+O\+W\+E\+R\+U\+P\+T\+Y\+PE}}}]{t\+\_\+type,  }\item[{Resource\+Manager \&}]{t\+\_\+resources }\end{DoxyParamCaption})}
+
+
+
+powerup constuctor setting up physical attributes of powerups 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+pos} & \\
+\hline
+{\em t\+\_\+type} & \\
+\hline
+{\em t\+\_\+resources} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_powerup_a2e1c97859d671527885e6f4eb200ca3f}\label{class_powerup_a2e1c97859d671527885e6f4eb200ca3f}} 
+\index{Powerup@{Powerup}!````~Powerup@{$\sim$Powerup}}
+\index{````~Powerup@{$\sim$Powerup}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{$\sim$Powerup()}{~Powerup()}}
+{\footnotesize\ttfamily Powerup\+::$\sim$\+Powerup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+powerup destructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_powerup_a7a90178cdfefac13a3fd83d5c8f5aae3}\label{class_powerup_a7a90178cdfefac13a3fd83d5c8f5aae3}} 
+\index{Powerup@{Powerup}!collisionDetection@{collisionDetection}}
+\index{collisionDetection@{collisionDetection}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{collisionDetection()}{collisionDetection()}}
+{\footnotesize\ttfamily bool Powerup\+::collision\+Detection (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+collision detection between player and powerup 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_powerup_a43e797bb2baedf42e391a5c81dbcd27f}\label{class_powerup_a43e797bb2baedf42e391a5c81dbcd27f}} 
+\index{Powerup@{Powerup}!getAlive@{getAlive}}
+\index{getAlive@{getAlive}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{getAlive()}{getAlive()}}
+{\footnotesize\ttfamily bool Powerup\+::get\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if alive 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_powerup_ab5bb3527fc41dfaeb0b9374192c66cc1}\label{class_powerup_ab5bb3527fc41dfaeb0b9374192c66cc1}} 
+\index{Powerup@{Powerup}!getPowerupType@{getPowerupType}}
+\index{getPowerupType@{getPowerupType}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{getPowerupType()}{getPowerupType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_powerup_8h_afeb25d08ced8579e13dd0d747398c625}{P\+O\+W\+E\+R\+U\+P\+T\+Y\+PE}} Powerup\+::get\+Powerup\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return the type of powerup 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_powerup_a79b1f1f38782c817d3bb12e3e89f8bc0}\label{class_powerup_a79b1f1f38782c817d3bb12e3e89f8bc0}} 
+\index{Powerup@{Powerup}!render@{render}}
+\index{render@{render}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Powerup\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+if alive draw powerups 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_powerup_ac72df579431ea63fd97ead9d70b051df}\label{class_powerup_ac72df579431ea63fd97ead9d70b051df}} 
+\index{Powerup@{Powerup}!setAlive@{setAlive}}
+\index{setAlive@{setAlive}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{setAlive()}{setAlive()}}
+{\footnotesize\ttfamily void Powerup\+::set\+Alive (\begin{DoxyParamCaption}\item[{bool}]{t\+\_\+alive }\end{DoxyParamCaption})}
+
+
+
+make powerup alive 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+alive} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_powerup_a5204feafbbb7cc35e857d0af437d270b}\label{class_powerup_a5204feafbbb7cc35e857d0af437d270b}} 
+\index{Powerup@{Powerup}!update@{update}}
+\index{update@{update}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Powerup\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+simple update of powerups 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_powerup_8h}{Powerup.\+h}}\item 
+\mbox{\hyperlink{_powerup_8cpp}{Powerup.\+cpp}}\end{DoxyCompactItemize}

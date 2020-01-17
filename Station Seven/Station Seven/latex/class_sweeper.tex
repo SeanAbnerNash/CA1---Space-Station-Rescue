@@ -1,0 +1,207 @@
+\hypertarget{class_sweeper}{}\doxysection{Sweeper Class Reference}
+\label{class_sweeper}\index{Sweeper@{Sweeper}}
+
+
+{\ttfamily \#include $<$Sweeper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sweeper_ae5f0a0ea55340a4c8931c24799f7a52a}{Sweeper}} (sf\+::\+Vector2f t\+\_\+pos, \mbox{\hyperlink{_sweeper_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} t\+\_\+state, Resource\+Manager \&t\+\_\+resources)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sweeper}{Sweeper}} Contructor setting up physical attributes of sweeper object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sweeper_a3099037dc68c87b680a8b235fb61848c}{$\sim$\+Sweeper}} ()
+\begin{DoxyCompactList}\small\item\em destructor for Sweepers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_acd21655687658e37c5edca588fb8e797}{update}} (sf\+::\+Time t\+\_\+delta\+Time, sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em update for the sweepers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_a5ab8d82702e70eaad72c973dd8c0edac}{render}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em handle rendering of sweepers sprite \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sweeper_a8fbbd7c64a5887eae1dffdfebd1c82ff}{in\+Lineof\+Sight}} (std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$ t\+\_\+workers)
+\item 
+void \mbox{\hyperlink{class_sweeper_ab1f71e48326db4b976d3ed5a31e49d2d}{wander}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function for sweeper wandering \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_a7dbf64aae26b0ea64f237411badd43ca}{seek}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function handle the sweeper chasing a position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_a39304f62ba590033852eba0b57a1c8f6}{flee}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function to handle fleeing from the player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_a9a5017a4df0c6ff9b4d25b4583046ab3}{start\+Calc}} ()
+\begin{DoxyCompactList}\small\item\em Function for updating all movement attributes of the missile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sweeper_a56dd77e66a1361b4af8e146584e064c3}{behaviour\+Change}} (sf\+::\+Vector2f t\+\_\+player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function for checking how close the player is and change behaviour \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_sweeper_a9fecea4436904ee3357a0b763f2c6c76}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em return position of sweeper \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_sweeper_adf8bd5bfdb94797c18740e2b1510f5ae}{m\+\_\+collected}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sweeper_ae5f0a0ea55340a4c8931c24799f7a52a}\label{class_sweeper_ae5f0a0ea55340a4c8931c24799f7a52a}} 
+\index{Sweeper@{Sweeper}!Sweeper@{Sweeper}}
+\index{Sweeper@{Sweeper}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{Sweeper()}{Sweeper()}}
+{\footnotesize\ttfamily Sweeper\+::\+Sweeper (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+pos,  }\item[{\mbox{\hyperlink{_sweeper_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}]{t\+\_\+state,  }\item[{Resource\+Manager \&}]{t\+\_\+resources }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_sweeper}{Sweeper}} Contructor setting up physical attributes of sweeper object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+pos} & \\
+\hline
+{\em t\+\_\+resources} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sweeper_a3099037dc68c87b680a8b235fb61848c}\label{class_sweeper_a3099037dc68c87b680a8b235fb61848c}} 
+\index{Sweeper@{Sweeper}!````~Sweeper@{$\sim$Sweeper}}
+\index{````~Sweeper@{$\sim$Sweeper}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{$\sim$Sweeper()}{~Sweeper()}}
+{\footnotesize\ttfamily Sweeper\+::$\sim$\+Sweeper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor for Sweepers 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sweeper_a56dd77e66a1361b4af8e146584e064c3}\label{class_sweeper_a56dd77e66a1361b4af8e146584e064c3}} 
+\index{Sweeper@{Sweeper}!behaviourChange@{behaviourChange}}
+\index{behaviourChange@{behaviourChange}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{behaviourChange()}{behaviourChange()}}
+{\footnotesize\ttfamily void Sweeper\+::behaviour\+Change (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function for checking how close the player is and change behaviour 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sweeper_a39304f62ba590033852eba0b57a1c8f6}\label{class_sweeper_a39304f62ba590033852eba0b57a1c8f6}} 
+\index{Sweeper@{Sweeper}!flee@{flee}}
+\index{flee@{flee}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{flee()}{flee()}}
+{\footnotesize\ttfamily void Sweeper\+::flee (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function to handle fleeing from the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sweeper_a9fecea4436904ee3357a0b763f2c6c76}\label{class_sweeper_a9fecea4436904ee3357a0b763f2c6c76}} 
+\index{Sweeper@{Sweeper}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Sweeper\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return position of sweeper 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sweeper_a8fbbd7c64a5887eae1dffdfebd1c82ff}\label{class_sweeper_a8fbbd7c64a5887eae1dffdfebd1c82ff}} 
+\index{Sweeper@{Sweeper}!inLineofSight@{inLineofSight}}
+\index{inLineofSight@{inLineofSight}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{inLineofSight()}{inLineofSight()}}
+{\footnotesize\ttfamily bool Sweeper\+::in\+Lineof\+Sight (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$}]{t\+\_\+workers }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_sweeper_a5ab8d82702e70eaad72c973dd8c0edac}\label{class_sweeper_a5ab8d82702e70eaad72c973dd8c0edac}} 
+\index{Sweeper@{Sweeper}!render@{render}}
+\index{render@{render}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Sweeper\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+handle rendering of sweepers sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sweeper_a7dbf64aae26b0ea64f237411badd43ca}\label{class_sweeper_a7dbf64aae26b0ea64f237411badd43ca}} 
+\index{Sweeper@{Sweeper}!seek@{seek}}
+\index{seek@{seek}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily void Sweeper\+::seek (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function handle the sweeper chasing a position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sweeper_a9a5017a4df0c6ff9b4d25b4583046ab3}\label{class_sweeper_a9a5017a4df0c6ff9b4d25b4583046ab3}} 
+\index{Sweeper@{Sweeper}!startCalc@{startCalc}}
+\index{startCalc@{startCalc}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{startCalc()}{startCalc()}}
+{\footnotesize\ttfamily void Sweeper\+::start\+Calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for updating all movement attributes of the missile 
+
+\mbox{\Hypertarget{class_sweeper_acd21655687658e37c5edca588fb8e797}\label{class_sweeper_acd21655687658e37c5edca588fb8e797}} 
+\index{Sweeper@{Sweeper}!update@{update}}
+\index{update@{update}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Sweeper\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time,  }\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+update for the sweepers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sweeper_ab1f71e48326db4b976d3ed5a31e49d2d}\label{class_sweeper_ab1f71e48326db4b976d3ed5a31e49d2d}} 
+\index{Sweeper@{Sweeper}!wander@{wander}}
+\index{wander@{wander}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{wander()}{wander()}}
+{\footnotesize\ttfamily void Sweeper\+::wander (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function for sweeper wandering 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sweeper_adf8bd5bfdb94797c18740e2b1510f5ae}\label{class_sweeper_adf8bd5bfdb94797c18740e2b1510f5ae}} 
+\index{Sweeper@{Sweeper}!m\_collected@{m\_collected}}
+\index{m\_collected@{m\_collected}!Sweeper@{Sweeper}}
+\doxysubsubsection{\texorpdfstring{m\_collected}{m\_collected}}
+{\footnotesize\ttfamily int Sweeper\+::m\+\_\+collected = 0}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_sweeper_8h}{Sweeper.\+h}}\item 
+\mbox{\hyperlink{_sweeper_8cpp}{Sweeper.\+cpp}}\end{DoxyCompactItemize}

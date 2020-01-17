@@ -1,0 +1,304 @@
+\hypertarget{class_tile}{}\doxysection{Tile Class Reference}
+\label{class_tile}\index{Tile@{Tile}}
+
+
+{\ttfamily \#include $<$Tile.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile_ad1b9547ccfa91f67db732970c3831a02}{Tile}} (int $\ast$t\+\_\+highest)
+\item 
+\mbox{\hyperlink{class_tile_a450fcf377325e1ed3e07540fda867772}{Tile}} (sf\+::\+Font \&t\+\_\+font, int $\ast$t\+\_\+highest)
+\item 
+\mbox{\hyperlink{class_tile_a98634abbd93fa13d0578d7103202d03d}{$\sim$\+Tile}} ()
+\item 
+void \mbox{\hyperlink{class_tile_acdd7f6de23fad91bef12f88aa842c834}{set\+Up\+Text}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a4ef74de0783cb0e212e5e76c1b84c848}{set\+Size}} (sf\+::\+Vector2f t\+\_\+size)
+\item 
+void \mbox{\hyperlink{class_tile_a2cdb357c903947be5003c6b2f8dfef2b}{set\+Colour}} (sf\+::\+Color t\+\_\+colour)
+\item 
+void \mbox{\hyperlink{class_tile_af524de4f765f65ee31b67642ba5bc594}{set\+Pos}} (sf\+::\+Vector2f t\+\_\+pos)
+\item 
+void \mbox{\hyperlink{class_tile_aca6b596a43a741deddbb20d2d63f344d}{set\+ID}} (sf\+::\+Vector2f t\+\_\+id)
+\item 
+void \mbox{\hyperlink{class_tile_a957d22291c617613431435eba7d566ab}{set\+Steps}} (int t\+\_\+steps)
+\item 
+void \mbox{\hyperlink{class_tile_aa063592f98acc7ad2ca52d9d17f90615}{reset}} ()
+\item 
+int \mbox{\hyperlink{class_tile_a23ad99a3c85dbd293f123a56557f9b8e}{get\+Steps}} ()
+\item 
+int \mbox{\hyperlink{class_tile_a94146926f4d499a11e552eae8dd3799c}{get\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a727175f587e229002a81543e3827d87c}{set\+Mode}} (int t\+\_\+mode)
+\item 
+void \mbox{\hyperlink{class_tile_a07ce694c5b16fc1c5e0a3711e682fa74}{update}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_ae2e177d16e7d6268c0858d660b5784f4}{get\+Pos}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_a5688831fb6b79752c151ad24c4575bdb}{get\+ID}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_a8ad13011c9b25eeda69ad8c35c841172}{get\+Size}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a86caafa75edbfce66fed0551f96781cc}{display}} (sf\+::\+Render\+Window \&m\+\_\+renderer, bool t\+\_\+draw\+Cost, bool t\+\_\+draw\+Vector, bool t\+\_\+draw\+Heat\+Map)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $\ast$ $>$ \mbox{\hyperlink{class_tile_a46f50b16db71d466def309335a70da3e}{get\+Neighbours}} ()
+\item 
+void \mbox{\hyperlink{class_tile_ad22533b9066073cde2ed0ea89a8b7a9d}{set\+Neighbours}} (\mbox{\hyperlink{class_tile}{Tile}} $\ast$t\+\_\+neighbour)
+\item 
+void \mbox{\hyperlink{class_tile_a46d47539e00839dce1a3f6a7ea2bc765}{list\+Neighbours}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a6961806a252564adb079873638523cf2}{clear\+Neighbours}} ()
+\item 
+float \mbox{\hyperlink{class_tile_a0c6858af57ec81df5fd0f5a860d76732}{get\+Value}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a9d9e5b9d54f3e6301fbf2c80a5f3f40f}{find\+Lowest\+Neighbour}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a54111affb0e05bbc6ad8ab864f7d214e}{set\+Lowest\+Neighbour}} (int t\+\_\+low)
+\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_tile_a795597b02f3d6ae9ae60f997e8d1577f}{get\+Lowest\+Neighbour}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a6f368b7f1fc640c3e3967b7c749f19a6}{reset\+Steps}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a3b8573a2c31302332205b8f36a55504e}{set\+Up\+Line}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a7f728b645c5ef8df354849dc7a14a02a}{update\+Line}} ()
+\item 
+void \mbox{\hyperlink{class_tile_ab16b30cad62f65cca4241007b79a808a}{update\+Heat\+Map}} (bool t\+\_\+heat\+Map)
+\item 
+void \mbox{\hyperlink{class_tile_aa904f8c34f73b5820a002b19de1069b7}{clear\+Path}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_tile_a589e7a6d7f4841912d342ddf119c9f2d}{get\+Vector\+Speed}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a4e9ca7675f24da5d08cb94ac67adfef1}{set\+Heuristic}} (float t\+\_\+heuristic)
+\item 
+float \mbox{\hyperlink{class_tile_a4b8aa1f0c092af00c93076a4391a38fa}{get\+Heuristic}} ()
+\item 
+float \mbox{\hyperlink{class_tile_a1d2974ba6c8bdb0e84a8a05b405bf5a9}{total\+Value}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@\+Author Sean Abner Nash @\+Login C00217019 Flow Field Pathfinding AI Time Taken 16 Hours 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tile_ad1b9547ccfa91f67db732970c3831a02}\label{class_tile_ad1b9547ccfa91f67db732970c3831a02}} 
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{Tile()}{Tile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Tile\+::\+Tile (\begin{DoxyParamCaption}\item[{int $\ast$}]{t\+\_\+highest }\end{DoxyParamCaption})}
+
+@\+Author Sean Abner Nash @\+Login C00217019 Flow Field Pathfinding AI Time Taken 16 Hours \mbox{\Hypertarget{class_tile_a450fcf377325e1ed3e07540fda867772}\label{class_tile_a450fcf377325e1ed3e07540fda867772}} 
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{Tile()}{Tile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Tile\+::\+Tile (\begin{DoxyParamCaption}\item[{sf\+::\+Font \&}]{t\+\_\+font,  }\item[{int $\ast$}]{t\+\_\+highest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a98634abbd93fa13d0578d7103202d03d}\label{class_tile_a98634abbd93fa13d0578d7103202d03d}} 
+\index{Tile@{Tile}!````~Tile@{$\sim$Tile}}
+\index{````~Tile@{$\sim$Tile}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{$\sim$Tile()}{~Tile()}}
+{\footnotesize\ttfamily Tile\+::$\sim$\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tile_a6961806a252564adb079873638523cf2}\label{class_tile_a6961806a252564adb079873638523cf2}} 
+\index{Tile@{Tile}!clearNeighbours@{clearNeighbours}}
+\index{clearNeighbours@{clearNeighbours}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{clearNeighbours()}{clearNeighbours()}}
+{\footnotesize\ttfamily void Tile\+::clear\+Neighbours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_aa904f8c34f73b5820a002b19de1069b7}\label{class_tile_aa904f8c34f73b5820a002b19de1069b7}} 
+\index{Tile@{Tile}!clearPath@{clearPath}}
+\index{clearPath@{clearPath}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{clearPath()}{clearPath()}}
+{\footnotesize\ttfamily void Tile\+::clear\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a86caafa75edbfce66fed0551f96781cc}\label{class_tile_a86caafa75edbfce66fed0551f96781cc}} 
+\index{Tile@{Tile}!display@{display}}
+\index{display@{display}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Tile\+::display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{m\+\_\+renderer,  }\item[{bool}]{t\+\_\+draw\+Cost,  }\item[{bool}]{t\+\_\+draw\+Vector,  }\item[{bool}]{t\+\_\+draw\+Heat\+Map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a9d9e5b9d54f3e6301fbf2c80a5f3f40f}\label{class_tile_a9d9e5b9d54f3e6301fbf2c80a5f3f40f}} 
+\index{Tile@{Tile}!findLowestNeighbour@{findLowestNeighbour}}
+\index{findLowestNeighbour@{findLowestNeighbour}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{findLowestNeighbour()}{findLowestNeighbour()}}
+{\footnotesize\ttfamily void Tile\+::find\+Lowest\+Neighbour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a4b8aa1f0c092af00c93076a4391a38fa}\label{class_tile_a4b8aa1f0c092af00c93076a4391a38fa}} 
+\index{Tile@{Tile}!getHeuristic@{getHeuristic}}
+\index{getHeuristic@{getHeuristic}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getHeuristic()}{getHeuristic()}}
+{\footnotesize\ttfamily float Tile\+::get\+Heuristic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a5688831fb6b79752c151ad24c4575bdb}\label{class_tile_a5688831fb6b79752c151ad24c4575bdb}} 
+\index{Tile@{Tile}!getID@{getID}}
+\index{getID@{getID}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a795597b02f3d6ae9ae60f997e8d1577f}\label{class_tile_a795597b02f3d6ae9ae60f997e8d1577f}} 
+\index{Tile@{Tile}!getLowestNeighbour@{getLowestNeighbour}}
+\index{getLowestNeighbour@{getLowestNeighbour}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getLowestNeighbour()}{getLowestNeighbour()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}} $\ast$ Tile\+::get\+Lowest\+Neighbour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a94146926f4d499a11e552eae8dd3799c}\label{class_tile_a94146926f4d499a11e552eae8dd3799c}} 
+\index{Tile@{Tile}!getMode@{getMode}}
+\index{getMode@{getMode}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getMode()}{getMode()}}
+{\footnotesize\ttfamily int Tile\+::get\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a46f50b16db71d466def309335a70da3e}\label{class_tile_a46f50b16db71d466def309335a70da3e}} 
+\index{Tile@{Tile}!getNeighbours@{getNeighbours}}
+\index{getNeighbours@{getNeighbours}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getNeighbours()}{getNeighbours()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $\ast$ $>$ Tile\+::get\+Neighbours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_ae2e177d16e7d6268c0858d660b5784f4}\label{class_tile_ae2e177d16e7d6268c0858d660b5784f4}} 
+\index{Tile@{Tile}!getPos@{getPos}}
+\index{getPos@{getPos}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a8ad13011c9b25eeda69ad8c35c841172}\label{class_tile_a8ad13011c9b25eeda69ad8c35c841172}} 
+\index{Tile@{Tile}!getSize@{getSize}}
+\index{getSize@{getSize}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a23ad99a3c85dbd293f123a56557f9b8e}\label{class_tile_a23ad99a3c85dbd293f123a56557f9b8e}} 
+\index{Tile@{Tile}!getSteps@{getSteps}}
+\index{getSteps@{getSteps}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getSteps()}{getSteps()}}
+{\footnotesize\ttfamily int Tile\+::get\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a0c6858af57ec81df5fd0f5a860d76732}\label{class_tile_a0c6858af57ec81df5fd0f5a860d76732}} 
+\index{Tile@{Tile}!getValue@{getValue}}
+\index{getValue@{getValue}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily float Tile\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a589e7a6d7f4841912d342ddf119c9f2d}\label{class_tile_a589e7a6d7f4841912d342ddf119c9f2d}} 
+\index{Tile@{Tile}!getVectorSpeed@{getVectorSpeed}}
+\index{getVectorSpeed@{getVectorSpeed}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getVectorSpeed()}{getVectorSpeed()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Tile\+::get\+Vector\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a46d47539e00839dce1a3f6a7ea2bc765}\label{class_tile_a46d47539e00839dce1a3f6a7ea2bc765}} 
+\index{Tile@{Tile}!listNeighbours@{listNeighbours}}
+\index{listNeighbours@{listNeighbours}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{listNeighbours()}{listNeighbours()}}
+{\footnotesize\ttfamily void Tile\+::list\+Neighbours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_aa063592f98acc7ad2ca52d9d17f90615}\label{class_tile_aa063592f98acc7ad2ca52d9d17f90615}} 
+\index{Tile@{Tile}!reset@{reset}}
+\index{reset@{reset}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Tile\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a6f368b7f1fc640c3e3967b7c749f19a6}\label{class_tile_a6f368b7f1fc640c3e3967b7c749f19a6}} 
+\index{Tile@{Tile}!resetSteps@{resetSteps}}
+\index{resetSteps@{resetSteps}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{resetSteps()}{resetSteps()}}
+{\footnotesize\ttfamily void Tile\+::reset\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a2cdb357c903947be5003c6b2f8dfef2b}\label{class_tile_a2cdb357c903947be5003c6b2f8dfef2b}} 
+\index{Tile@{Tile}!setColour@{setColour}}
+\index{setColour@{setColour}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setColour()}{setColour()}}
+{\footnotesize\ttfamily void Tile\+::set\+Colour (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{t\+\_\+colour }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a4e9ca7675f24da5d08cb94ac67adfef1}\label{class_tile_a4e9ca7675f24da5d08cb94ac67adfef1}} 
+\index{Tile@{Tile}!setHeuristic@{setHeuristic}}
+\index{setHeuristic@{setHeuristic}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setHeuristic()}{setHeuristic()}}
+{\footnotesize\ttfamily void Tile\+::set\+Heuristic (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+heuristic }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_aca6b596a43a741deddbb20d2d63f344d}\label{class_tile_aca6b596a43a741deddbb20d2d63f344d}} 
+\index{Tile@{Tile}!setID@{setID}}
+\index{setID@{setID}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setID()}{setID()}}
+{\footnotesize\ttfamily void Tile\+::set\+ID (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a54111affb0e05bbc6ad8ab864f7d214e}\label{class_tile_a54111affb0e05bbc6ad8ab864f7d214e}} 
+\index{Tile@{Tile}!setLowestNeighbour@{setLowestNeighbour}}
+\index{setLowestNeighbour@{setLowestNeighbour}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setLowestNeighbour()}{setLowestNeighbour()}}
+{\footnotesize\ttfamily void Tile\+::set\+Lowest\+Neighbour (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+low }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a727175f587e229002a81543e3827d87c}\label{class_tile_a727175f587e229002a81543e3827d87c}} 
+\index{Tile@{Tile}!setMode@{setMode}}
+\index{setMode@{setMode}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily void Tile\+::set\+Mode (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_ad22533b9066073cde2ed0ea89a8b7a9d}\label{class_tile_ad22533b9066073cde2ed0ea89a8b7a9d}} 
+\index{Tile@{Tile}!setNeighbours@{setNeighbours}}
+\index{setNeighbours@{setNeighbours}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setNeighbours()}{setNeighbours()}}
+{\footnotesize\ttfamily void Tile\+::set\+Neighbours (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tile}{Tile}} $\ast$}]{t\+\_\+neighbour }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_af524de4f765f65ee31b67642ba5bc594}\label{class_tile_af524de4f765f65ee31b67642ba5bc594}} 
+\index{Tile@{Tile}!setPos@{setPos}}
+\index{setPos@{setPos}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void Tile\+::set\+Pos (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a4ef74de0783cb0e212e5e76c1b84c848}\label{class_tile_a4ef74de0783cb0e212e5e76c1b84c848}} 
+\index{Tile@{Tile}!setSize@{setSize}}
+\index{setSize@{setSize}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Tile\+::set\+Size (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a957d22291c617613431435eba7d566ab}\label{class_tile_a957d22291c617613431435eba7d566ab}} 
+\index{Tile@{Tile}!setSteps@{setSteps}}
+\index{setSteps@{setSteps}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setSteps()}{setSteps()}}
+{\footnotesize\ttfamily void Tile\+::set\+Steps (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+steps }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a3b8573a2c31302332205b8f36a55504e}\label{class_tile_a3b8573a2c31302332205b8f36a55504e}} 
+\index{Tile@{Tile}!setUpLine@{setUpLine}}
+\index{setUpLine@{setUpLine}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setUpLine()}{setUpLine()}}
+{\footnotesize\ttfamily void Tile\+::set\+Up\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_acdd7f6de23fad91bef12f88aa842c834}\label{class_tile_acdd7f6de23fad91bef12f88aa842c834}} 
+\index{Tile@{Tile}!setUpText@{setUpText}}
+\index{setUpText@{setUpText}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{setUpText()}{setUpText()}}
+{\footnotesize\ttfamily void Tile\+::set\+Up\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a1d2974ba6c8bdb0e84a8a05b405bf5a9}\label{class_tile_a1d2974ba6c8bdb0e84a8a05b405bf5a9}} 
+\index{Tile@{Tile}!totalValue@{totalValue}}
+\index{totalValue@{totalValue}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{totalValue()}{totalValue()}}
+{\footnotesize\ttfamily float Tile\+::total\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a07ce694c5b16fc1c5e0a3711e682fa74}\label{class_tile_a07ce694c5b16fc1c5e0a3711e682fa74}} 
+\index{Tile@{Tile}!update@{update}}
+\index{update@{update}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Tile\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_ab16b30cad62f65cca4241007b79a808a}\label{class_tile_ab16b30cad62f65cca4241007b79a808a}} 
+\index{Tile@{Tile}!updateHeatMap@{updateHeatMap}}
+\index{updateHeatMap@{updateHeatMap}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{updateHeatMap()}{updateHeatMap()}}
+{\footnotesize\ttfamily void Tile\+::update\+Heat\+Map (\begin{DoxyParamCaption}\item[{bool}]{t\+\_\+heat\+Map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_tile_a7f728b645c5ef8df354849dc7a14a02a}\label{class_tile_a7f728b645c5ef8df354849dc7a14a02a}} 
+\index{Tile@{Tile}!updateLine@{updateLine}}
+\index{updateLine@{updateLine}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{updateLine()}{updateLine()}}
+{\footnotesize\ttfamily void Tile\+::update\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_tile_8h}{Tile.\+h}}\item 
+\mbox{\hyperlink{_tile_8cpp}{Tile.\+cpp}}\end{DoxyCompactItemize}
