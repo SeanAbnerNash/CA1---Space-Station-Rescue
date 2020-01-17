@@ -55,7 +55,7 @@ private:
 	sf::View m_view;
 	int m_bulletCounter;
 	int m_bulletTime = 15;
-
+	int m_workerCollected;
 	bool m_shieldActive = false;
 	bool m_bombCollected = false;
 	sf::CircleShape m_shieldShape;

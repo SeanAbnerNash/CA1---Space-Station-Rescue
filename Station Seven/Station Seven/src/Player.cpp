@@ -12,7 +12,8 @@ Player::Player(ResourceManager& t_resources) :
 	m_speed(0),
 	m_maxSpeed(750),
 	m_rotation(90),
-	m_heading(0, 0)
+	m_heading(0, 0),
+	m_workerCollected(0)
 {
 	initPlayer();
 
@@ -275,16 +276,18 @@ void Player::playerWorkerCollision(std::vector<Worker*> *t_worker)
 {
 	for(int i=0;i<t_worker->size();++i)
 	{
-		//std::cout << Maths::dist(m_position, t_worker->at(i)->m_position) << std::endl;
-		//if (Maths::dist(m_position, t_worker->at(i)->getPosition()) < 400)
-		//{
-		//	
-		//	//++m_workerCollected;
-		//}
-		if (m_playerSprite.getGlobalBounds().intersects(t_worker->at(i)->getSprite().getGlobalBounds()))
+		if (Maths::dist(m_playerSprite.getPosition(), t_worker->at(i)->getPosition()) < 45)
 		{
-			std::cout << "collected" << std::endl;
+			
+			t_worker->at(i)->m_isCollected = true;
+			m_workerCollected++;
+			std::cout << "player has workers " << m_workerCollected << std::endl;
 		}
+		//if (m_playerSprite.getGlobalBounds().intersects(t_worker->at(i)->getSprite().getGlobalBounds()))
+		//{
+
+		//	//std::cout << "collected" << std::endl;
+		//}
 	}
 
 }
@@ -310,7 +313,7 @@ void Player::activate360Shot()
 void Player::checkNest(Nest& nest) 
 {
 	
-	if (Maths::dist(m_position, nest.m_position) < 1810)
+	if (Maths::dist(m_playerSprite.getPosition(), nest.m_position) < 500)
 	{
 		// Checks if player is close to the nest
 		nest.createMissile();	// Nest fires bullet at player

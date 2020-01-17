@@ -26,6 +26,7 @@ public:
 	sf::Vector2f getPosition();
 	sf::Sprite getSprite();
 	sf::Vector2f m_position;
+	bool m_isCollected;
 private:
 	ResourceManager& m_resourceMng;
 	WORKERSTATE m_state;

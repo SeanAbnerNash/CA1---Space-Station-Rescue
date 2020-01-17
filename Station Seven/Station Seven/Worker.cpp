@@ -11,7 +11,8 @@ Worker::Worker(WORKERSTATE t_state, sf::Vector2f t_initialPos, ResourceManager& 
 	m_position(t_initialPos),
 	m_resourceMng(t_resources),
 	m_velocity(sf::Vector2f(0, 0)),
-	m_rotation(0)
+	m_rotation(0),
+	m_isCollected(false)
 {
 	srand(time(0));
 	m_workerSprite.setTexture(m_resourceMng.getTexture(TextureID::WORKER));

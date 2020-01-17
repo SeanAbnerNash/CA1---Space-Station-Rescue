@@ -53,7 +53,20 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_powerups.push_back(new Powerup(sf::Vector2f(500, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(1250, 2000), POWERUPTYPE::SHOT360, m_resourceMng));
 
-	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
+	for (int i = 0; i < 10; i++)
+
+	{
+		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
+	}
+	for (int i = 0; i < 3; i++)
+
+	{
+		m_nests.clear();
+		m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
+		m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
+		m_nests.push_back(new Nest(sf::Vector2f(3000, 1000), m_resourceMng));
+		m_nests.push_back(new Nest(sf::Vector2f(4000, 2000), m_resourceMng));
+	}
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(2000, 500), m_resourceMng));
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(3000, 500), m_resourceMng));
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(400, 500), m_resourceMng));
@@ -106,9 +119,13 @@ void World::update( sf::Time t_deltaTime)
 		}
 	}
 
-	for (Worker* workers : m_workers)
+	for (int i=0;i<m_workers.size();++i)
 	{
-		workers->update(m_player.getPos(),m_player.getVel());
+		m_workers.at(i)->update(m_player.getPos(),m_player.getVel());
+		if (m_workers.at(i)->m_isCollected)
+		{
+			m_workers.erase(m_workers.begin() + i);
+		}
 	
 
 	}
