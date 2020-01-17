@@ -19,6 +19,7 @@ public:
 	void render(sf::RenderWindow& t_window);
 	pathing seek(sf::Vector2f t_playerPos);
 	bool isDead();
+	sf::Vector2f getPosition();
 private:
 	// Time and clock for checking how long missile has been alive
 	sf::Time m_time;

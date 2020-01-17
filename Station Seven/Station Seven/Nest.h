@@ -4,14 +4,15 @@
 #include "ResourceManager.h"
 #include "Missile.h"
 #include "Sweeper.h"
+#include "ParticleSystem.h"
 class Nest
 {
 	public:
 		Nest(sf::Vector2f t_pos,ResourceManager& t_resources);
 		~Nest();
-		void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos,std::vector<Worker*> t_workers, int& t_playerHealth);
+		void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos,std::vector<Worker*> t_workers, int& t_playerHealth,std::vector<ParticleSystem*>& t_ps);
 		void render(sf::RenderWindow& t_window);
-		void takeDamage(/*int& t_playerScore*/);
+		void takeDamage(std::vector<ParticleSystem*>& t_ps);
 		void createSweeper();
 		void createMissile();
 		sf::Vector2f getPosition();

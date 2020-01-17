@@ -322,7 +322,7 @@ void Player::activate360Shot()
 /// collision detection check between player and nests
 /// </summary>
 /// <param name="nest"></param>
-void Player::checkNest(Nest& nest) 
+void Player::checkNest(Nest& nest,std::vector<ParticleSystem*>& t_ps)
 {
 	
 	if (Maths::dist(m_playerSprite.getPosition(), nest.m_position) < 500)
@@ -334,7 +334,7 @@ void Player::checkNest(Nest& nest)
 		// Loops through all of the player bullets
 		if (Maths::dist(m_bullets.at(i)->getPosition(), nest.getPosition()) < 50) {
 			// Checks to see if a bullet has hit the nest
-			nest.takeDamage();	// Nest loses health
+			nest.takeDamage(t_ps);	// Nest loses health
 			m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
 		}
 
@@ -345,16 +345,22 @@ void Player::checkNest(Nest& nest)
 /// </summary>
 /// </summary>
 /// <param name="t_sweepers"></param>
-void Player::checkSweepers(std::vector<Sweeper*>& t_sweepers)
+void Player::checkSweepers(std::vector<Sweeper*>& t_sweepers, std::vector<ParticleSystem*>& t_ps)
 {
 	for (int i = 0; i < m_bullets.size(); ++i) {
 		for (int j = 0; j < t_sweepers.size(); ++j) {
 			// Loops through all the sweeper bots
-			if (m_bullets.size() > i && Maths::dist(m_bullets.at(i)->getPosition(), t_sweepers.at(j)->getPosition()) < 75) {
+			if (m_bullets.size() > i && Maths::dist(m_bullets.at(i)->getPosition(), t_sweepers.at(j)->getPosition()) < 75 ) 
+			{
 				// Checks if bullet has hit enemy
-				m_workerCollected += t_sweepers.at(j)->m_collected;	// Player gets any worker that sweeper has collected
-				t_sweepers.erase(t_sweepers.begin() + j);	// Delete sweeper
-				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+				m_workerCollected += t_sweepers.at(j)->m_collected;	
+				t_ps.push_back(new ParticleSystem(500,t_sweepers.at(j)->getPosition()));	// Spawn particles
+				t_sweepers.erase(t_sweepers.begin() + j);	
+				m_bullets.erase(m_bullets.begin() + i);	
+			}
+			if (Maths::dist(m_position, t_sweepers.at(j)->getPosition()) < 75 && m_shieldActive)
+			{
+				t_sweepers.erase(t_sweepers.begin() + j);
 			}
 		}
 	}

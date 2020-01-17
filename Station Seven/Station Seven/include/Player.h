@@ -29,8 +29,8 @@ public:
 	void playerWorkerCollision(std::vector<Worker*> *t_worker);
 	void activateShield();
 	void activate360Shot();
-	void checkNest(Nest& nest);
-	void checkSweepers(std::vector<Sweeper*>& t_sweepers);
+	void checkNest(Nest& nest, std::vector<ParticleSystem*>& t_ps);
+	void checkSweepers(std::vector<Sweeper*>& t_sweeper, std::vector<ParticleSystem*>& t_ps);
 	int m_health;
 	int m_workerCollected;
 private:

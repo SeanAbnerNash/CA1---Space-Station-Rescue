@@ -23,6 +23,8 @@
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Nest.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -46,6 +48,8 @@
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Nest.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Screen.h" />

@@ -39,6 +39,7 @@ private:
 	std::vector<Nest*> m_nests;
 	std::vector<Powerup*>m_powerups;
 	std::vector<Sweeper*>m_sweepers;
+	std::vector<ParticleSystem*> m_particles;
 	sf::Text m_healthText;
 	sf::Text m_workersText;
 	sf::Font m_font;

@@ -51,12 +51,9 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_grids.push_back(new TileManager(sf::Vector2f(m_map[7].getPosition().x -12, m_map[7].getPosition().y - 32)));
 	m_grids.push_back(new TileManager(sf::Vector2f(m_map[8].getPosition().x -32, m_map[8].getPosition().y - 32)));
 
-	m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
-	m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
-
 	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 200), POWERUPTYPE::SHIELD, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(2000, 2000), POWERUPTYPE::SHIELD, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(500, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 2000), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(1250, 2000), POWERUPTYPE::SHOT360, m_resourceMng));
 
 	for (int i = 0; i < 10; i++)
@@ -65,19 +62,13 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
 	}
 
-	for (int i = 0; i < 3; i++)
 
-	{
 		m_nests.clear();
 		m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
-		m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
+		m_nests.push_back(new Nest(sf::Vector2f(1000, 4000), m_resourceMng));
 		m_nests.push_back(new Nest(sf::Vector2f(3000, 1000), m_resourceMng));
 		m_nests.push_back(new Nest(sf::Vector2f(4000, 2000), m_resourceMng));
-	}
-	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(2000, 500), m_resourceMng));
-	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(3000, 500), m_resourceMng));
-	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(400, 500), m_resourceMng));
-	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(500, 500), m_resourceMng));
+	
 
 	if (!m_font.loadFromFile("ASSETS\\FONTS\\arial.ttf"))	// Checks to make sure font is correct
 	{
@@ -121,9 +112,9 @@ void World::update( sf::Time t_deltaTime)
 
 	for (int i = 0; i < m_nests.size(); ++i)
 	{
-		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers,m_player.m_health);
-		m_player.checkNest(*m_nests.at(i));
-		m_player.checkSweepers(m_nests.at(i)->m_sweepers);
+		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers,m_player.m_health, m_particles);
+		m_player.checkNest(*m_nests.at(i),m_particles);
+		m_player.checkSweepers(m_nests.at(i)->m_sweepers,m_particles);
 		if (m_nests.at(i)->getDead())
 		{
 			for (Sweeper* sweeper : m_nests.at(i)->m_sweepers)
@@ -133,7 +124,7 @@ void World::update( sf::Time t_deltaTime)
 			m_nests.erase(m_nests.begin() + i);
 		}
 	}
-	m_player.checkSweepers(m_sweepers);
+	m_player.checkSweepers(m_sweepers, m_particles);
 	for (Sweeper* sweeper : m_sweepers)
 	{
 		sweeper->update(t_deltaTime, m_player.getPos());
@@ -168,6 +159,17 @@ void World::update( sf::Time t_deltaTime)
 
 	}
 	m_player.playerWorkerCollision(&m_workers);
+
+	for (int i = 0; i < m_particles.size(); i++) {
+		// Loops through particle systems
+		m_particles.at(i)->update();
+
+		//Checks if the particle system is empty
+		if (m_particles.at(i)->m_particles.size() <= 0) {
+			// Deletes the particle system
+			m_particles.erase(m_particles.begin() + i);
+		}
+	}
 }
 
 /// <summary>
@@ -200,6 +202,9 @@ void World::render(sf::RenderWindow& t_window)
 	for (Sweeper* sweeper : m_sweepers) 
 	{
 		sweeper->render(m_window);	
+	}
+	for (ParticleSystem* ps : m_particles) {
+		ps->draw(m_window); // Draw particle system
 	}
 }
 

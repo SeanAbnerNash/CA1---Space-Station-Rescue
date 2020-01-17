@@ -92,6 +92,14 @@ bool Missile::isDead()
 	return m_dead;
 }
 /// <summary>
+/// return missile position
+/// </summary>
+/// <returns></returns>
+sf::Vector2f Missile::getPosition()
+{
+	return m_position;
+}
+/// <summary>
 /// Function for updating all movement attributes of the missile
 /// </summary>
 void Missile::startCalc() 
