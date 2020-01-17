@@ -23,6 +23,8 @@
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Nest.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Powerup.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -31,6 +33,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="Sweeper.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -46,10 +49,13 @@
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Nest.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Powerup.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="Sweeper.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="Wall.h" />

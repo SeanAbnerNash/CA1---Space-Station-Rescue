@@ -40,26 +40,23 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_map[8].setPosition(sf::Vector2f(m_map[7].getPosition().x + m_map[7].getGlobalBounds().width, m_map[6].getPosition().y));
 
 	m_grids.push_back(new TileManager());
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[1].getPosition().x -12, m_map[1].getPosition().y+1)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[1].getPosition().x - 12, m_map[1].getPosition().y + 1)));
 	m_grids.push_back(new TileManager(sf::Vector2f(m_map[2].getPosition().x - 32, m_map[2].getPosition().y + 1)));
-	
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[3].getPosition().x, m_map[3].getPosition().y-12)));
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[4].getPosition().x-12, m_map[4].getPosition().y - 12)));
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[5].getPosition().x -32, m_map[5].getPosition().y - 12)));
 
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[6].getPosition().x, m_map[6].getPosition().y-32)));
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[7].getPosition().x -12, m_map[7].getPosition().y - 32)));
-	m_grids.push_back(new TileManager(sf::Vector2f(m_map[8].getPosition().x -32, m_map[8].getPosition().y - 32)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[3].getPosition().x, m_map[3].getPosition().y - 12)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[4].getPosition().x - 12, m_map[4].getPosition().y - 12)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[5].getPosition().x - 32, m_map[5].getPosition().y - 12)));
 
-	m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
-	m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[6].getPosition().x, m_map[6].getPosition().y - 32)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[7].getPosition().x - 12, m_map[7].getPosition().y - 32)));
+	m_grids.push_back(new TileManager(sf::Vector2f(m_map[8].getPosition().x - 32, m_map[8].getPosition().y - 32)));
 
 	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 200), POWERUPTYPE::SHIELD, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(2000, 2000), POWERUPTYPE::SHIELD, m_resourceMng));
-	m_powerups.push_back(new Powerup(sf::Vector2f(500, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 2000), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
 	m_powerups.push_back(new Powerup(sf::Vector2f(1250, 2000), POWERUPTYPE::SHOT360, m_resourceMng));
 
-	m_walls.push_back(new Wall(sf::Vector2f{ 0 +((50 + 1) * 3), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{  0 + ((50 + 1) * 37), 0 + ((50 + 1) * 1) }));
+	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 3), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 37), 0 + ((50 + 1) * 1) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 3), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 37), 0 + ((50 + 1) * 1) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 36), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 58), -4 + ((50 + 1) * 12) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 0), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 3), 0 + ((50 + 1) * 56) }));
@@ -81,7 +78,7 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 100), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ -15 + ((50 + 1) * 115), 0 + ((50 + 1) * 12) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 0 + ((50 + 1) * 50), 0 + ((50 + 1) * 0) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 100), 0 + ((50 + 1) * 1) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 36), -25 + ((50 + 1) * 25) }, t_resources, sf::Vector2f{ -5 + ((50 + 1) * 58), 0 + ((57 + 1) * 50) }));
-	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 26), -25 + ((50 + 1) * 34) }, t_resources, sf::Vector2f{ 0  + ((50 + 1) * 73), 0 + ((57 + 1) * 50) }));
+	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 26), -25 + ((50 + 1) * 34) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 73), 0 + ((57 + 1) * 50) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 36), 0 + ((50 + 1) * 50) }, t_resources, sf::Vector2f{ +20 + ((50 + 1) * 60), 0 + ((57 + 1) * 62) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 36), 15 + ((50 + 1) * 82) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 60), 0 + ((57 + 1) * 90) }));
 	m_walls.push_back(new Wall(sf::Vector2f{ 15 + ((50 + 1) * 25), 15 + ((50 + 1) * 98) }, t_resources, sf::Vector2f{ 0 + ((50 + 1) * 70), -25 + ((57 + 1) * 104) }));
@@ -99,17 +96,30 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	{
 		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
 	}
-	for (int i = 0; i < 3; i++)
 
-	{
-		m_nests.clear();
-		m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
-		m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
-		m_nests.push_back(new Nest(sf::Vector2f(3000, 1000), m_resourceMng));
-		m_nests.push_back(new Nest(sf::Vector2f(4000, 2000), m_resourceMng));
-	}
+
+	m_nests.clear();
+	m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
+	m_nests.push_back(new Nest(sf::Vector2f(1000, 4000), m_resourceMng));
+	m_nests.push_back(new Nest(sf::Vector2f(3000, 1000), m_resourceMng));
+	m_nests.push_back(new Nest(sf::Vector2f(4000, 2000), m_resourceMng));
+
 	setUpGrids();
 
+
+
+	if (!m_font.loadFromFile("ASSETS\\FONTS\\arial.ttf"))	// Checks to make sure font is correct
+	{
+		std::cout << "Problem loading font file!" << std::endl;
+	}
+	m_healthText.setFont(m_font);
+	m_healthText.setFillColor(sf::Color::Black);
+	m_healthText.setOrigin(m_healthText.getLocalBounds().width / 2, m_healthText.getLocalBounds().height / 2);
+
+	m_workersText.setFont(m_font);
+	m_workersText.setFillColor(sf::Color::Black);
+	m_workersText.setOrigin(m_workersText.getLocalBounds().width / 2, m_workersText.getLocalBounds().height / 2);
+	updateUI();
 }
 /// <summary>
 /// world destructor
@@ -143,15 +153,26 @@ void World::update( sf::Time t_deltaTime)
 		}
 	}
 	m_grids[m_playerGridLocation]->update();
-	//playerTrackingPathfinding();
+	playerTrackingPathfinding();
 	for (int i = 0; i < m_nests.size(); ++i)
 	{
-		m_nests.at(i)->update(t_deltaTime, m_player.getPos());
-		m_player.checkNest(*m_nests.at(i));
+		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers,m_player.m_health, m_particles);
+		m_player.checkNest(*m_nests.at(i),m_particles);
+		m_player.checkSweepers(m_nests.at(i)->m_sweepers,m_particles);
 		if (m_nests.at(i)->getDead())
 		{
+			for (Sweeper* sweeper : m_nests.at(i)->m_sweepers)
+			{
+				m_sweepers.push_back(sweeper);
+			}
 			m_nests.erase(m_nests.begin() + i);
 		}
+	}
+	m_player.checkSweepers(m_sweepers, m_particles);
+	for (Sweeper* sweeper : m_sweepers)
+	{
+		sweeper->update(t_deltaTime, m_player.getPos());
+		sweeper->inLineofSight(m_workers);
 	}
 	for (Powerup* powerup : m_powerups)
 	{
@@ -182,6 +203,17 @@ void World::update( sf::Time t_deltaTime)
 
 	}
 	m_player.playerWorkerCollision(&m_workers);
+
+	for (int i = 0; i < m_particles.size(); i++) {
+		// Loops through particle systems
+		m_particles.at(i)->update();
+
+		//Checks if the particle system is empty
+		if (m_particles.at(i)->m_particles.size() <= 0) {
+			// Deletes the particle system
+			m_particles.erase(m_particles.begin() + i);
+		}
+	}
 }
 
 /// <summary>
@@ -191,6 +223,7 @@ void World::update( sf::Time t_deltaTime)
 /// <param name="t_window"></param>
 void World::render(sf::RenderWindow& t_window)
 {
+	m_window.setView(m_player.getView());
 	for (auto i : m_map)
 	{
 		t_window.draw(i);
@@ -202,7 +235,9 @@ void World::render(sf::RenderWindow& t_window)
 
 	//m_grids[m_playerGridLocation]->display(t_window);
 	m_player.render(t_window);
-	
+	m_window.draw(m_healthText);
+	m_window.draw(m_workersText);
+
 	for (Nest* nest : m_nests) {
 		nest->render(m_window);	// Draw nest
 	}
@@ -215,6 +250,13 @@ void World::render(sf::RenderWindow& t_window)
 		workers->render(m_window);
 	}
 
+	for (Sweeper* sweeper : m_sweepers) 
+	{
+		sweeper->render(m_window);	
+	}
+	for (ParticleSystem* ps : m_particles) {
+		ps->draw(m_window); // Draw particle system
+	}
 }
 
 void World::mouseClick(sf::Vector2i t_clickPos, int m_mode)
@@ -478,4 +520,19 @@ void World::playerTrackingPathfinding()
 	 
 	
 	m_grids[m_playerGridLocation]->setGoal(temp);
+}
+
+void World::updateUI()
+{
+
+	m_healthText.setString("Health" + std::to_string(m_player.m_health));
+	m_healthText.setPosition(
+		m_player.getSprite().getPosition().x - 500,
+		m_player.getSprite().getPosition().y - 370
+	);
+	m_workersText.setString("Workers" +std::to_string(m_player.m_workerCollected));
+	m_workersText.setPosition(
+		m_player.getSprite().getPosition().x + 500,
+		m_player.getSprite().getPosition().y - 370
+	);
 }

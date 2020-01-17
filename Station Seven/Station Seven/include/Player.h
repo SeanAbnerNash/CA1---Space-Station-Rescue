@@ -7,6 +7,7 @@
 #include "Worker.h"
 #include "Maths.h"
 #include "Nest.h"
+#include "Sweeper.h"
 class Player
 {
 public:
@@ -29,8 +30,12 @@ public:
 	void playerWorkerCollision(std::vector<Worker*> *t_worker);
 	void activateShield();
 	void activate360Shot();
-	void checkNest(Nest& nest);
 	float getHitboxRadius();
+	void checkNest(Nest& nest, std::vector<ParticleSystem*>& t_ps);
+	void checkSweepers(std::vector<Sweeper*>& t_sweeper, std::vector<ParticleSystem*>& t_ps);
+	int m_health;
+	int m_workerCollected;
+
 private:
 	void handleInput();
 	void borderCheck();
@@ -57,7 +62,7 @@ private:
 	sf::View m_view;
 	int m_bulletCounter;
 	int m_bulletTime = 15;
-	int m_workerCollected;
+	
 	bool m_shieldActive = false;
 	bool m_bombCollected = false;
 	sf::CircleShape m_shieldShape;
