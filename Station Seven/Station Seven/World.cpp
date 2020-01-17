@@ -64,6 +64,7 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	{
 		m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
 	}
+
 	for (int i = 0; i < 3; i++)
 
 	{
@@ -78,6 +79,18 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(400, 500), m_resourceMng));
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(500, 500), m_resourceMng));
 
+	if (!m_font.loadFromFile("ASSETS\\FONTS\\arial.ttf"))	// Checks to make sure font is correct
+	{
+		std::cout << "Problem loading font file!" << std::endl;
+	}
+	m_healthText.setFont(m_font);
+	m_healthText.setFillColor(sf::Color::Black);
+	m_healthText.setOrigin(m_healthText.getLocalBounds().width / 2, m_healthText.getLocalBounds().height / 2);
+
+	m_workersText.setFont(m_font);
+	m_workersText.setFillColor(sf::Color::Black);
+	m_workersText.setOrigin(m_workersText.getLocalBounds().width / 2, m_workersText.getLocalBounds().height / 2);
+	updateUI();
 }
 /// <summary>
 /// world destructor
@@ -108,7 +121,7 @@ void World::update( sf::Time t_deltaTime)
 
 	for (int i = 0; i < m_nests.size(); ++i)
 	{
-		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers);
+		m_nests.at(i)->update(t_deltaTime, m_player.getPos(),m_workers,m_player.m_health);
 		m_player.checkNest(*m_nests.at(i));
 		m_player.checkSweepers(m_nests.at(i)->m_sweepers);
 		if (m_nests.at(i)->getDead())
@@ -164,13 +177,15 @@ void World::update( sf::Time t_deltaTime)
 /// <param name="t_window"></param>
 void World::render(sf::RenderWindow& t_window)
 {
+	m_window.setView(m_player.getView());
 	for (auto i : m_map)
 	{
 		t_window.draw(i);
 	}
 	m_grids[m_playerGridLocation]->display(t_window);
 	m_player.render(t_window);
-
+	m_window.draw(m_healthText);
+	m_window.draw(m_workersText);
 	for (Nest* nest : m_nests) {
 		nest->render(m_window);	// Draw nest
 	}
@@ -212,4 +227,19 @@ void World::playerTrackingPathfinding()
 	temp.x = m_window.mapPixelToCoords(m_click).x;
 	temp.y = m_window.mapPixelToCoords(m_click).y;
 	m_grids[m_playerGridLocation]->setGoal(temp);
+}
+
+void World::updateUI()
+{
+
+	m_healthText.setString("Health" + std::to_string(m_player.m_health));
+	m_healthText.setPosition(
+		m_player.getSprite().getPosition().x - 500,
+		m_player.getSprite().getPosition().y - 370
+	);
+	m_workersText.setString("Workers" +std::to_string(m_player.m_workerCollected));
+	m_workersText.setPosition(
+		m_player.getSprite().getPosition().x + 500,
+		m_player.getSprite().getPosition().y - 370
+	);
 }

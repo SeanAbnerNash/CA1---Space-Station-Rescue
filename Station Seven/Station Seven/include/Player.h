@@ -31,6 +31,8 @@ public:
 	void activate360Shot();
 	void checkNest(Nest& nest);
 	void checkSweepers(std::vector<Sweeper*>& t_sweepers);
+	int m_health;
+	int m_workerCollected;
 private:
 	void handleInput();
 	void borderCheck();
@@ -57,12 +59,13 @@ private:
 	sf::View m_view;
 	int m_bulletCounter;
 	int m_bulletTime = 15;
-	int m_workerCollected;
+	
 	bool m_shieldActive = false;
 	bool m_bombCollected = false;
 	sf::CircleShape m_shieldShape;
 	sf::Time m_shieldTime;
 	sf::Clock m_shieldClock;
+
 	//Position
 	//Max Speed
 	//Current Speed

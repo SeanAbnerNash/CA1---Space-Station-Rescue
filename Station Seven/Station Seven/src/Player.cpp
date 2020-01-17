@@ -13,7 +13,8 @@ Player::Player(ResourceManager& t_resources) :
 	m_maxSpeed(750),
 	m_rotation(90),
 	m_heading(0, 0),
-	m_workerCollected(0)
+	m_workerCollected(0),
+	m_health(100)
 {
 	initPlayer();
 

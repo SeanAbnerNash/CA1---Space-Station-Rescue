@@ -31,7 +31,9 @@ Missile::~Missile()
 /// Seek and die after 5 seconds and check collision between player
 /// </summary>
 /// <param name="t_deltaTime"></param>
-void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos)
+/// <param name="t_playerPos"></param>
+/// <param name="t_playerealth"></param>
+void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos,int& t_playerHealth)
 {
 	steer = seek(t_playerPos);
 
@@ -45,7 +47,7 @@ void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos)
 
 	if (Maths::dist(t_playerPos, m_position) < 45) {
 		// If missile has hit player
-		//t_health = t_health - 15;	// Hurt the player
+		t_playerHealth = t_playerHealth - 10;	// Hurt the player
 		std::cout << "missile hit player" << std::endl;
 		m_dead = true;	// Missile is dead
 	}

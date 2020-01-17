@@ -68,17 +68,13 @@ bool Sweeper::inLineofSight(std::vector<Worker*> t_workers)
 			// Cheks if worker is close enough
 			sf::Vector2f realVelPos = m_velocity + m_position;
 
-			// C = m_position A = m_velocity B = Player Pos
 			double Dir_C_to_A = atan2(realVelPos.y - m_position.y, realVelPos.x - m_position.x);
 			double Dir_C_to_B = atan2(w->getPosition().y - m_position.y, w->getPosition().x - m_position.x);
 			double Angle_ACB = Dir_C_to_A - Dir_C_to_B;
-
-			// Handle wrap around
 			const double Pi = acos(-1);
 			if (Angle_ACB > Pi) Angle_ACB -= 2 * Pi;
 			else if (Angle_ACB < -Pi) Angle_ACB += 2 * Pi;
 
-			// Angle represents the angle between the worker and the sweeper
 			float angle = Angle_ACB;
 			angle = angle * RAD_TO_DEG;
 

@@ -15,7 +15,7 @@ class Missile
 public:
 	Missile(sf::Vector2f t_pos, ResourceManager& t_resources);
 	~Missile();
-	void update(sf::Time t_deltaTime,sf::Vector2f t_playerPos);
+	void update(sf::Time t_deltaTime,sf::Vector2f t_playerPos, int& t_playerHealth);
 	void render(sf::RenderWindow& t_window);
 	pathing seek(sf::Vector2f t_playerPos);
 	bool isDead();

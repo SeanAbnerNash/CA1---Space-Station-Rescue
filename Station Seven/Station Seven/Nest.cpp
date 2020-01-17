@@ -31,7 +31,7 @@ Nest::~Nest()
 /// </summary>
 /// <param name="t_deltaTime"></param>
 /// <param name="t_playerPos"></param>
-void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos, std::vector<Worker*> t_workers)
+void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos, std::vector<Worker*> t_workers,int &t_playerHealth)
 {
 	m_sweeperTimer++;
 	if (m_sweeperTimer > 100 && m_sweepers.size() < 5)
@@ -47,7 +47,7 @@ void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos, std::vector<Wo
 	//shoot missile
 	for (int i = 0; i < m_missiles.size(); i++) {
 		// Loop through missiles
-		m_missiles.at(i)->update(t_deltaTime, t_playerPos);	// Update missiles
+		m_missiles.at(i)->update(t_deltaTime, t_playerPos,t_playerHealth);	// Update missiles
 		if (m_missiles.at(i)->isDead()) 
 		{
 			// If missile is dead
@@ -76,13 +76,12 @@ void Nest::render(sf::RenderWindow& t_window)
 /// <summary>
 /// function that when hit by player bullet it takes damage
 /// </summary>
-void Nest::takeDamage(/*int& t_playerScore*/)
+void Nest::takeDamage()
 {
 	m_health--;	// Deduct health 
 	if (m_health <= 0) {
 		// Checks if nest has run out of health
 		m_dead = true;	// Set nest to be dead
-		//t_playerScore += 20;
 	}
 }
 

@@ -9,7 +9,7 @@ class Nest
 	public:
 		Nest(sf::Vector2f t_pos,ResourceManager& t_resources);
 		~Nest();
-		void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos,std::vector<Worker*> t_workers);
+		void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos,std::vector<Worker*> t_workers, int& t_playerHealth);
 		void render(sf::RenderWindow& t_window);
 		void takeDamage(/*int& t_playerScore*/);
 		void createSweeper();
