@@ -15,10 +15,7 @@ Game::Game() :
 {
 	m_window.setFramerateLimit(60);
 
-	//TODO: THIS IS where we load the map texture that matches our map in grid.cpp
-	//m_worldSprite.setTexture(m_resourceMng.getTexture(TextureID::WORLDMAP));
-	//m_worldSprite.setScale(1, 1);
-	//m_worldSprite.setOrigin(m_worldSprite.getLocalBounds().width / 2, m_worldSprite.getLocalBounds().height / 2);
+
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
@@ -126,28 +123,7 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::Cyan);
-
-	//m_window.setView(m_player.getView());
+	m_window.clear(sf::Color::Black);
 	m_world.render(m_window);
-
-	
-	/*m_mapBorder.setPosition(m_player.getPos().x + 300, m_player.getPos().y + 200);
-
-
-	
-	//m_window.draw(m_mapBorder);
-
-	//m_window.setView(m_miniMap);
-
-
-	//m_miniMap.setCenter(m_player.getPos());
-	/*m_window.draw(m_player.getSprite());
-	for (Worker* workers : m_workers)
-	{
-		m_window.draw(workers->getSprite());
-	}*/
-	//m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
-
 	m_window.display();
 }

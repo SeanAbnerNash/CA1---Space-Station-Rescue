@@ -322,6 +322,13 @@ void TileManager::setGoal(sf::Vector2i t_goal)
 	}
 }
 
+void TileManager::setMode(sf::Vector2f t_id, int t_mode)
+{
+	Tile* temp = getTile(t_id);
+	temp->setMode(t_mode);
+}
+
+
 void TileManager::setUpVectorGrid()
 {
 	if (m_start != nullptr)

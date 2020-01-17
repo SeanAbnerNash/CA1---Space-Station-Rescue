@@ -21,6 +21,7 @@ public:
 	void increaseSpeed();
 	void decreaseSpeed();
 	void decreaseRotation();
+	void collision();
 	sf::Vector2f getPos();
 	sf::Vector2f getVel();
 	sf::View getView();
@@ -29,6 +30,7 @@ public:
 	void activateShield();
 	void activate360Shot();
 	void checkNest(Nest& nest);
+	float getHitboxRadius();
 private:
 	void handleInput();
 	void borderCheck();
@@ -61,6 +63,7 @@ private:
 	sf::CircleShape m_shieldShape;
 	sf::Time m_shieldTime;
 	sf::Clock m_shieldClock;
+	sf::Vector2f m_previousValidPosition;
 	//Position
 	//Max Speed
 	//Current Speed

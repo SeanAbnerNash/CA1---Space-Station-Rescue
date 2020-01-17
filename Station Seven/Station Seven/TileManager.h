@@ -33,6 +33,7 @@ public:
 	void clearPath();//Clears the Path
 	float length(sf::Vector2f t_left, sf::Vector2f t_right);
 	void setGoal(sf::Vector2i t_goal);
+	void setMode(sf::Vector2f t_id, int t_mode);
 
 
 
@@ -52,7 +53,7 @@ private:
 	void setUpGrid();//Initially sets up the grid.
 	int m_highestCost{ 0 };//Highest cost tile on the grid
 	int m_pathCost{ 0 };//Cumulative cost of the path
-	bool m_drawVector{ true };
+	bool m_drawVector{ false };
 	bool m_drawCost{ false };
 	bool m_drawHeatMap{ false };
 

@@ -97,7 +97,7 @@ void Tile::setMode(int t_mode)
 	}
 	switch (m_mode) {//Sets the New colours and cost values
 	case 0:
-		setColour(sf::Color{ 0,200,0 });
+		setColour(sf::Color{ 0,200,0, 125});
 		m_terrain = 0;
 		break; //optional
 	case 1:

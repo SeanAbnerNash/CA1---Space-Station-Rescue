@@ -65,6 +65,7 @@ void Player::update(sf::Time t_deltaTime)
 	borderCheck();
 	m_heading.x = cos(m_rotation * (DEG_TO_RAD));
 	m_heading.y = sin(m_rotation * (DEG_TO_RAD));
+	m_previousValidPosition = m_playerSprite.getPosition();
 	m_playerSprite.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
 		(m_playerSprite.getPosition().y + m_heading.y * m_speed * t_deltaTime.asMilliseconds() / 1000));
 	m_playerHitbox.setPosition((m_playerSprite.getPosition().x + m_heading.x * m_speed * t_deltaTime.asMilliseconds() / 1000),
@@ -90,7 +91,7 @@ void Player::update(sf::Time t_deltaTime)
 		}
 	}
 	m_shieldShape.setPosition(m_playerSprite.getPosition());
-	//std::cout << "x" << m_playerSprite.getPosition().x << " " << "y" << m_playerSprite.getPosition().y << std::endl;
+
 }
 
 /// <summary>
@@ -163,7 +164,7 @@ void Player::render(sf::RenderWindow& window)
 {
 	m_view.setCenter(m_playerSprite.getPosition());
 	window.setView(m_view);
-	//window.draw(m_playerHitbox);
+	window.draw(m_playerHitbox);
 	window.draw(m_playerSprite);
 	for (Bullet* bullet : m_bullets) 
 	{
@@ -236,6 +237,11 @@ void Player::decreaseRotation()
 	}
 
 }
+void Player::collision()
+{
+	m_position = m_previousValidPosition;
+	m_speed = 0.0f;
+}
 /// <summary>
 /// get Position of player sprite
 /// </summary>
@@ -283,11 +289,7 @@ void Player::playerWorkerCollision(std::vector<Worker*> *t_worker)
 			m_workerCollected++;
 			std::cout << "player has workers " << m_workerCollected << std::endl;
 		}
-		//if (m_playerSprite.getGlobalBounds().intersects(t_worker->at(i)->getSprite().getGlobalBounds()))
-		//{
 
-		//	//std::cout << "collected" << std::endl;
-		//}
 	}
 
 }
@@ -327,4 +329,9 @@ void Player::checkNest(Nest& nest)
 		}
 
 	}
+}
+
+float Player::getHitboxRadius()
+{
+	return m_hitboxRadius;
 }
