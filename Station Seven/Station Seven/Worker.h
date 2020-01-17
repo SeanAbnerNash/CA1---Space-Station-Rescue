@@ -25,11 +25,12 @@ public:
 	void flee(sf::Vector2f t_playerPos);
 	sf::Vector2f getPosition();
 	sf::Sprite getSprite();
+	sf::Vector2f m_position;
 private:
 	ResourceManager& m_resourceMng;
 	WORKERSTATE m_state;
 	sf::Sprite m_workerSprite;
-	sf::Vector2f m_position;
+	
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_spriteDimensions{ 100,100 };
 	float m_rotation;

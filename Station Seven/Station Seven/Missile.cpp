@@ -34,6 +34,7 @@ void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos)
 	if (Maths::dist(t_playerPos, m_position) < 45) {
 		// If missile has hit player
 		//t_health = t_health - 15;	// Hurt the player
+		std::cout << "missile hit player" << std::endl;
 		m_dead = true;	// Missile is dead
 	}
 	// Update time

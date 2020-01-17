@@ -4,9 +4,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.h"
-
-
-#include "Powerup.h"
 #include "World.h"
 
 class Game
@@ -35,7 +32,7 @@ private:
 	bool m_exitGame; // control exiting game
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
-	std::vector<Powerup*>m_powerups;
+
 	World m_world;
 
 };

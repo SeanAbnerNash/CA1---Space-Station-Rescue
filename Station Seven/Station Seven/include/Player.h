@@ -25,7 +25,7 @@ public:
 	sf::Vector2f getVel();
 	sf::View getView();
 	sf::Sprite getSprite();
-	bool playerWorkerCollision(sf::Vector2f t_workerPos);
+	void playerWorkerCollision(std::vector<Worker*> *t_worker);
 	void activateShield();
 	void activate360Shot();
 	void checkNest(Nest& nest);

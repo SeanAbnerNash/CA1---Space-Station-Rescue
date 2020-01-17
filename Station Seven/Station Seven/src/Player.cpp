@@ -271,17 +271,22 @@ sf::Sprite Player::getSprite()
 /// collision detection check between player and workers
 /// </summary>
 /// <param name="t_workers"></param>
-bool Player::playerWorkerCollision(sf::Vector2f t_workerPos)
+void Player::playerWorkerCollision(std::vector<Worker*> *t_worker)
 {
-	if (Maths::dist(m_position, t_workerPos) < 40)
+	for(int i=0;i<t_worker->size();++i)
 	{
-		return true;
-		//++m_workerCollected;
+		//std::cout << Maths::dist(m_position, t_worker->at(i)->m_position) << std::endl;
+		//if (Maths::dist(m_position, t_worker->at(i)->getPosition()) < 400)
+		//{
+		//	
+		//	//++m_workerCollected;
+		//}
+		if (m_playerSprite.getGlobalBounds().intersects(t_worker->at(i)->getSprite().getGlobalBounds()))
+		{
+			std::cout << "collected" << std::endl;
+		}
 	}
-	else
-	{
-		return false;
-	}
+
 }
 
 void Player::activateShield()
@@ -304,8 +309,8 @@ void Player::activate360Shot()
 
 void Player::checkNest(Nest& nest) 
 {
-	std::cout << Maths::dist(m_position, nest.getPosition()) << std::endl;
-	if (Maths::dist(m_position, nest.m_position) < 510)
+	
+	if (Maths::dist(m_position, nest.m_position) < 1810)
 	{
 		// Checks if player is close to the nest
 		nest.createMissile();	// Nest fires bullet at player

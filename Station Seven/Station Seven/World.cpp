@@ -47,6 +47,18 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 
 	m_nests.push_back(new Nest(sf::Vector2f(1000, 1000), m_resourceMng));
 	m_nests.push_back(new Nest(sf::Vector2f(2000, 2000), m_resourceMng));
+
+	m_powerups.push_back(new Powerup(sf::Vector2f(1000, 200), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(2000, 2000), POWERUPTYPE::SHIELD, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(500, 2500), POWERUPTYPE::SHOT360, m_resourceMng));
+	m_powerups.push_back(new Powerup(sf::Vector2f(1250, 2000), POWERUPTYPE::SHOT360, m_resourceMng));
+
+	m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(1200, 500), m_resourceMng));
+	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(2000, 500), m_resourceMng));
+	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(3000, 500), m_resourceMng));
+	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(400, 500), m_resourceMng));
+	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(500, 500), m_resourceMng));
+
 }
 
 World::~World()
@@ -76,7 +88,31 @@ void World::update( sf::Time t_deltaTime)
 			m_nests.erase(m_nests.begin() + i);
 		}
 	}
+	for (Powerup* powerup : m_powerups)
+	{
+		powerup->update();
+		if (powerup->collisionDetection(m_player.getPos()))
+		{
+			powerup->setAlive(false);
+			if (powerup->getPowerupType() ==POWERUPTYPE::SHIELD)
+			{
+				m_player.activateShield();
+			}
+			else
+			{
+				m_player.activate360Shot();
+			}
 
+		}
+	}
+
+	for (Worker* workers : m_workers)
+	{
+		workers->update(m_player.getPos(),m_player.getVel());
+	
+
+	}
+	m_player.playerWorkerCollision(&m_workers);
 }
 
 void World::render(sf::RenderWindow& t_window)
@@ -90,6 +126,14 @@ void World::render(sf::RenderWindow& t_window)
 
 	for (Nest* nest : m_nests) {
 		nest->render(m_window);	// Draw nest
+	}
+	for (Powerup* powerup : m_powerups)
+	{
+		powerup->render(m_window);
+	}
+	for (Worker* workers : m_workers)
+	{
+		workers->render(m_window);
 	}
 }
 

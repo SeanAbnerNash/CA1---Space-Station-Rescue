@@ -17,7 +17,7 @@ Worker::Worker(WORKERSTATE t_state, sf::Vector2f t_initialPos, ResourceManager& 
 	m_workerSprite.setTexture(m_resourceMng.getTexture(TextureID::WORKER));
 	m_workerSprite.setOrigin(m_workerSprite.getLocalBounds().width / 2, m_workerSprite.getLocalBounds().height / 2);
 	m_workerSprite.setScale(m_spriteDimensions.x / m_workerSprite.getGlobalBounds().width, m_spriteDimensions.y / m_workerSprite.getGlobalBounds().height);
-	m_workerSprite.setPosition(m_position);
+	//m_workerSprite.setPosition(m_position);
 }
 /// <summary>
 /// destructor for workers

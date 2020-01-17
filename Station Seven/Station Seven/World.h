@@ -9,7 +9,7 @@
 #define M_PI           3.14159265358979323846  /* pi */
 #include <Thor/Vectors.hpp>
 #include "Nest.h"
-
+#include "Powerup.h"
 class World
 {
 public:
@@ -36,5 +36,6 @@ private:
 	int m_playerGridLocation{ 0 };
 	sf::Vector2i m_click{ 600,400 };
 	std::vector<Nest*> m_nests;
+	std::vector<Powerup*>m_powerups;
 };
 
