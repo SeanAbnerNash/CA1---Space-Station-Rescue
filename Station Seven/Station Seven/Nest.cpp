@@ -1,5 +1,11 @@
 #include "Nest.h"
 
+/// <summary>
+/// Nest Contructor
+/// setting up physical attributes of player object
+/// </summary>
+/// <param name="t_pos"></param>
+/// <param name="t_resources"></param>
 Nest::Nest(sf::Vector2f t_pos, ResourceManager& t_resources):
 	m_position(t_pos),
 	m_resourceMng(t_resources),
@@ -12,10 +18,19 @@ Nest::Nest(sf::Vector2f t_pos, ResourceManager& t_resources):
 	m_nestSprite.setPosition(m_position);
 }
 
+/// <summary>
+/// Nest destructor
+/// </summary>
 Nest::~Nest()
 {
 }
 
+/// <summary>
+/// updating the nest functionality 
+/// missile update
+/// </summary>
+/// <param name="t_deltaTime"></param>
+/// <param name="t_playerPos"></param>
 void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos)
 {
 	//shoot missile
@@ -31,6 +46,10 @@ void Nest::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos)
 	//spawn enemies
 }
 
+/// <summary>
+/// drawing of the nest and missiles
+/// </summary>
+/// <param name="t_window"></param>
 void Nest::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_nestSprite);
@@ -40,6 +59,9 @@ void Nest::render(sf::RenderWindow& t_window)
 	}
 }
 
+/// <summary>
+/// function that when hit by player bullet it takes damage
+/// </summary>
 void Nest::takeDamage(/*int& t_playerScore*/)
 {
 	m_health--;	// Deduct health 
@@ -49,6 +71,10 @@ void Nest::takeDamage(/*int& t_playerScore*/)
 		//t_playerScore += 20;
 	}
 }
+
+/// <summary>
+/// create missile that shoots from nests
+/// </summary>
 void Nest::createMissile() 
 {
 	if (m_missiles.size() < 1) {
@@ -56,12 +82,19 @@ void Nest::createMissile()
 		m_missiles.push_back(new Missile(m_position, m_resourceMng));	// Fire missile
 	}
 }
-
+/// <summary>
+/// getposition of nest
+/// </summary>
+/// <returns></returns>
 sf::Vector2f Nest::getPosition()
 {
 	return m_position;
 }
 
+/// <summary>
+/// check if dead
+/// </summary>
+/// <returns></returns>
 bool Nest::getDead()
 {
 	return m_dead;

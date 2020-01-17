@@ -1,5 +1,11 @@
 #include "World.h"
 
+/// <summary>
+/// World constructor
+/// here we set up the map and entities
+/// </summary>
+/// <param name="t_resources"></param>
+/// <param name="t_window"></param>
 World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	m_resourceMng(t_resources),
 	m_player(m_resourceMng),
@@ -73,11 +79,18 @@ World::World(ResourceManager& t_resources, sf::RenderWindow& t_window):
 	//m_workers.push_back(new Worker(WORKERSTATE::WANDER, sf::Vector2f(500, 500), m_resourceMng));
 
 }
-
+/// <summary>
+/// world destructor
+/// </summary>
 World::~World()
 {
 }
-
+/// <summary>
+/// here we do updates of player the world
+/// pathfinding , powerups
+/// collision detection
+/// </summary>
+/// <param name="t_deltaTime"></param>
 void World::update( sf::Time t_deltaTime)
 {
 
@@ -132,6 +145,11 @@ void World::update( sf::Time t_deltaTime)
 	m_player.playerWorkerCollision(&m_workers);
 }
 
+/// <summary>
+/// here we render the world 
+/// entities player powerups
+/// </summary>
+/// <param name="t_window"></param>
 void World::render(sf::RenderWindow& t_window)
 {
 	for (auto i : m_map)
@@ -169,6 +187,9 @@ sf::Vector2i World::vecFToVecI(sf::Vector2f t_vec)
 	return sf::Vector2i(t_vec.x,t_vec.y);
 }
 
+/// <summary>
+/// track the player pathfinding
+/// </summary>
 void World::playerTrackingPathfinding()
 {
 	sf::Vector2i temp;

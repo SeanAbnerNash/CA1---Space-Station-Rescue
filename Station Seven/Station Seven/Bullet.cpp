@@ -46,7 +46,10 @@ int Bullet::getLifetime()
 {
 	return m_lifeTime;
 }
-
+/// <summary>
+/// return position of bullet
+/// </summary>
+/// <returns></returns>
 sf::Vector2f Bullet::getPosition()
 {
 	return m_position;

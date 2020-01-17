@@ -1,5 +1,11 @@
 #include "Missile.h"
 
+/// <summary>
+/// missile constructor
+/// setting up physical attributes of missile object
+/// </summary>
+/// <param name="t_pos"></param>
+/// <param name="t_resources"></param>
 Missile::Missile(sf::Vector2f t_pos, ResourceManager& t_resources):
 	m_position(t_pos),
 	m_resourceMng(t_resources),
@@ -14,11 +20,17 @@ Missile::Missile(sf::Vector2f t_pos, ResourceManager& t_resources):
 	m_missileSprite.setScale(100.0f / m_missileSprite.getGlobalBounds().width, 100.0f / m_missileSprite.getGlobalBounds().height);
 	//m_missileSprite.setPosition(m_position);
 }
-
+/// <summary>
+/// Missile destructor
+/// </summary>
 Missile::~Missile()
 {
 }
-
+/// <summary>
+/// updating the physics of missile,
+/// Seek and die after 5 seconds and check collision between player
+/// </summary>
+/// <param name="t_deltaTime"></param>
 void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos)
 {
 	steer = seek(t_playerPos);
@@ -45,11 +57,19 @@ void Missile::update(sf::Time t_deltaTime,sf::Vector2f t_playerPos)
 	}
 }
 
+/// <summary>
+/// render the missile
+/// </summary>
+/// <param name="t_window"></param>
 void Missile::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_missileSprite);	// Draw the missile
 }
-
+/// <summary>
+/// seek function
+/// </summary>
+/// <param name="t_playerPos"></param>
+/// <returns></returns>
 pathing Missile::seek(sf::Vector2f t_playerPos)
 {
 	m_velocity = t_playerPos - m_position;
@@ -61,7 +81,10 @@ pathing Missile::seek(sf::Vector2f t_playerPos)
 	seekSteering.angular = 0.0;
 	return seekSteering;
 }
-
+/// <summary>
+/// check if dead
+/// </summary>
+/// <returns></returns>
 bool Missile::isDead()
 {
 	return m_dead;
